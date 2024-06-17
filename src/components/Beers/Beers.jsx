@@ -19,7 +19,7 @@ export default function Beers() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_BEERS' });
-    dispatch({ type: 'FETCH_STYLES' })
+    dispatch({ type: 'FETCH_STYLES' });
   }, []);
 
   const handleSubmit = (event) => {
@@ -65,16 +65,30 @@ export default function Beers() {
               name='styleSelect'
               id='style-dropdown'
               onChange={(event) => {
-                setNewBeer({ ...newBeer, beer_style: event.target.value })
+                setNewBeer({ ...newBeer, beer_style: event.target.value });
               }}
             >
               <option>Select Style</option>
               {styles.map((style, i) => {
                 return (
-                  <option key={i} value={style.id}>{style.beer_style}</option>
-                )
+                  <option key={i} value={style.id}>
+                    {style.beer_style}
+                  </option>
+                );
               })}
             </select>
+          </div>
+          <div>
+            <label htmlFor='beerABV'>ABV</label>
+            <br />
+            <input
+              type='text'
+              placeholder='ABV'
+              value={newBeer.abv}
+              onChange={(event) =>
+                setNewBeer({ ...newBeer, abv: event.target.value })
+              }
+            />
           </div>
         </form>
       </div>

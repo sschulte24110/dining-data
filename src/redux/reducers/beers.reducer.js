@@ -1,4 +1,4 @@
-const beersReducer = (state= [], action) => {
+const beers = (state= [], action) => {
   if (action.type === 'SET_BEERS') {
     return action.payload;
   } else if (action.type === 'ADD_BEER') {
@@ -7,4 +7,4 @@ const beersReducer = (state= [], action) => {
   return state;
 }
 
-export default beersReducer;
+export default beers;

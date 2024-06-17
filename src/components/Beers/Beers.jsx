@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 export default function Beers() {
-  const beers = useSelector((store) => store.beersReducer);
+  const beers = useSelector((store) => store.beers);
+  const styles = useSelector((store) => store.styles);
   const dispatch = useDispatch();
 
   let [newBeer, setNewBeer] = useState({
@@ -18,6 +19,7 @@ export default function Beers() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_BEERS' });
+    dispatch({ type: 'FETCH_STYLES' })
   }, []);
 
   const handleSubmit = (event) => {
@@ -59,14 +61,20 @@ export default function Beers() {
           <div>
             <label htmlFor='beer'>Style</label>
             <br />
-            <input
-              type='text'
-              placeholder='Style'
-              value={newBeer.beer_style}
-              onChange={(event) =>
+            <select
+              name='styleSelect'
+              id='style-dropdown'
+              onChange={(event) => {
                 setNewBeer({ ...newBeer, beer_style: event.target.value })
-              }
-            />
+              }}
+            >
+              <option>Select Style</option>
+              {styles.map((style, i) => {
+                return (
+                  <option key={i} value={style.id}>{style.beer_style}</option>
+                )
+              })}
+            </select>
           </div>
         </form>
       </div>

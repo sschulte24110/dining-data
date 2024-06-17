@@ -49,4 +49,18 @@ router.post('/logout', (req, res, next) => {
   });
 });
 
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+  // endpoint functionality
+  const queryText = `DELETE FROM "user" WHERE "id"=$1;`;
+  pool
+    .query(queryText, [req.params.id])
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Error in DELETE user`, error);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;

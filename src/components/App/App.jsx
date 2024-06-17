@@ -20,9 +20,11 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Home from '../Home/Home';
+import Beers from '../Beers/Beers';
+import Vendors from '../Vendors/Vendors';
 
 import './App.css';
-import Beers from '../Beers/Beers';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -68,6 +70,9 @@ function App() {
 
           <ProtectedRoute exact path='/beers'>
             <Beers />
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/vendors'>
+            <Vendors />
           </ProtectedRoute>
 
           <ProtectedRoute

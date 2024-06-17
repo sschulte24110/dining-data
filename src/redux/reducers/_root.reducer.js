@@ -3,6 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import beers from './beers.reducer';
 import styles from './styles.reducer';
+import vendors from './vendor.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
   beers, 
-  styles
+  styles, 
+  vendors,
 });
 
 export default rootReducer;

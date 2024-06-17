@@ -83,7 +83,9 @@ export default function Beers() {
         <ul>
           {beers.map((beer, i) => (
             <li key={i}>
-              {beer.name} {beer.brewery}
+              {beer.name}
+              <br />
+              {beer.brewery}
             </li>
           ))}
         </ul>

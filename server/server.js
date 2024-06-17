@@ -11,6 +11,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const beersRouter = require('./routes/beers.router');
 const stylesRouter = require('./routes/styles.router');
+const winesRouter = require('./routes/wines.router');
 
 
 // Express Middleware
@@ -29,6 +30,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/beers', beersRouter);
 app.use('/api/styles', stylesRouter);
+app.use('/api/wines', winesRouter);
 
 
 // Listen Server & Port

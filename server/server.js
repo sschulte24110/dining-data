@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 const beersRouter = require('./routes/beers.router');
 const stylesRouter = require('./routes/styles.router');
 const winesRouter = require('./routes/wines.router');
+const varietalsRouter = require('./routes/varietals.router');
 
 
 // Express Middleware
@@ -31,6 +32,7 @@ app.use('/api/user', userRouter);
 app.use('/api/beers', beersRouter);
 app.use('/api/styles', stylesRouter);
 app.use('/api/wines', winesRouter);
+app.use('/api/varietals', varietalsRouter);
 
 
 // Listen Server & Port

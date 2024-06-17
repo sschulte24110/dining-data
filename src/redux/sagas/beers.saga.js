@@ -10,8 +10,19 @@ function* fetchBeers(action) {
   }
 }
 
+function* addBeer(action) {
+  try {
+    yield axios.post('api/beers', action.payload);
+    yield put({ type: 'FETCH_BEERS' })
+  } catch (error) {
+    alert(`error adding beer`);
+    console.error(error);
+  }
+}
+
 function* beersSaga() {
   yield takeLatest('FETCH_BEERS', fetchBeers);
+  yield takeLatest('ADD_BEER', addBeer);
 }
 
 export default beersSaga;

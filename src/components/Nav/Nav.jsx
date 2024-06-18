@@ -9,9 +9,9 @@ function Nav() {
 
   return (
     <div className='nav'>
-      <Link to='/home'>
-        <img src='./images/dining-data-vert.png' alt="" />
-      </Link>
+      {/* <Link to='/home'>
+        <img src='./images/dining-data-vert.png' alt="Dining Data Logo" />
+      </Link> */}
       <div>
         {/* If no user is logged in, show these links */}
         {!user.id && (

@@ -28,7 +28,6 @@ import EditVendor from '../Vendors/EditVendor/EditVendor';
 
 import './App.css';
 
-
 function App() {
   const dispatch = useDispatch();
 
@@ -41,7 +40,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        
         <Switch>
           {/* Visiting localhost:5173 will redirect to localhost:5173/home */}
           <Redirect exact from='/' to='/home' />
@@ -80,10 +79,9 @@ function App() {
           <ProtectedRoute exact path='/vendorform'>
             <VendorForm />
           </ProtectedRoute>
-          <ProtectedRoute exact path='/editvendor/:id'>
+          <ProtectedRoute exact path='/editvendor/:id' component={EditVendor}>
             <EditVendor />
           </ProtectedRoute>
-          
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
@@ -132,6 +130,7 @@ function App() {
           </Route>
         </Switch>
         <Footer />
+        <Nav />
       </div>
     </Router>
   );

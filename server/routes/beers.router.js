@@ -16,6 +16,21 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   });
 });
 
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+  console.log(`Getting Beers with specific style`);
+  let queryText = `SELECT * FROM "beers" 
+JOIN "beer_style" on beer_style.id=beers.beer_style
+WHERE beer_style.id=$1
+ORDER BY name;`;
+pool.query(queryText, [req.params.id]).then((result) => {
+  res.send(result.rows);
+  console.log(`Beers of selected style`, result.rows);
+}).catch((error) => {
+  console.log(`Error getting beers with specific style`);
+  res.sendStatus(500);
+})
+})
+
 router.post('/', rejectUnauthenticated, async (req, res) => {
   console.log('/beers POST route');
   console.log(req.body);

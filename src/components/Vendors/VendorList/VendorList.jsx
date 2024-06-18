@@ -4,13 +4,17 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 export default function VendorList({vendor}) {
-  // const vendors = useSelector((store) => store.vendors);
-  // const dispatch = useDispatch();
   const history = useHistory();
+  
+
+  const handleClick = () => {
+    history.push(`/editvendor/${vendor.id}`)
+  }
 
   return (
-    <div onClick={() => history.push(`/editvendor/${vendor.id}`)}>
+    <div onClick={() => {handleClick()}}>
       <li key={vendor.id}>{vendor.vendor_name}</li>
+      <hr />
     </div>
   );
 }

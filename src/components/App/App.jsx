@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   HashRouter as Router,
   Redirect,
@@ -22,6 +23,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import Home from '../Home/Home';
 import Beers from '../Beers/Beers';
 import Vendors from '../Vendors/Vendors';
+import VendorForm from '../Vendors/VendorForm/VendorForm';
 
 import './App.css';
 
@@ -74,6 +76,10 @@ function App() {
           <ProtectedRoute exact path='/vendors'>
             <Vendors />
           </ProtectedRoute>
+          <ProtectedRoute exact path='/vendorform'>
+            <VendorForm />
+          </ProtectedRoute>
+          
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage

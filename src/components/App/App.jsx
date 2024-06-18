@@ -21,12 +21,13 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Home from '../Home/Home';
-import Beers from '../Beers/Beers';
+
 import Vendors from '../Vendors/Vendors';
 import VendorForm from '../Vendors/VendorForm/VendorForm';
 import EditVendor from '../Vendors/EditVendor/EditVendor';
 
 import './App.css';
+import BeerStyle from '../Beers/BeerStyle/BeerStyle';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,7 +41,6 @@ function App() {
   return (
     <Router>
       <div>
-        
         <Switch>
           {/* Visiting localhost:5173 will redirect to localhost:5173/home */}
           <Redirect exact from='/' to='/home' />
@@ -70,8 +70,8 @@ function App() {
             <Home />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path='/beers'>
-            <Beers />
+          <ProtectedRoute exact path='/beerstyle'>
+            <BeerStyle />
           </ProtectedRoute>
           <ProtectedRoute exact path='/vendors'>
             <Vendors />

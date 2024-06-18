@@ -16,6 +16,7 @@ export default function Vendors() {
   return (
     <>
       <h1>Manage Vendors</h1>
+      <h2 onClick={() => history.push('/vendorform')}>+</h2>
       <ul>
         {vendors.map((vendor, i) => {
           return <li key={i}>{vendor.vendor_name}</li>

@@ -24,6 +24,7 @@ import Home from '../Home/Home';
 import Beers from '../Beers/Beers';
 import Vendors from '../Vendors/Vendors';
 import VendorForm from '../Vendors/VendorForm/VendorForm';
+import EditVendor from '../Vendors/EditVendor/EditVendor';
 
 import './App.css';
 
@@ -78,6 +79,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute exact path='/vendorform'>
             <VendorForm />
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/editvendor/:id'>
+            <EditVendor />
           </ProtectedRoute>
           
 

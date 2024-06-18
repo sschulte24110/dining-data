@@ -3,6 +3,8 @@ const beers = (state= [], action) => {
     return action.payload;
   } else if (action.type === 'ADD_BEER') {
     return [...state, action.payload]
+  } else if (action.type === 'SET_STYLE_BEER') {
+    return action.payload;
   }
   return state;
 }

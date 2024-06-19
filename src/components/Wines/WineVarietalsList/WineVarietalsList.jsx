@@ -4,7 +4,7 @@ export default function WineVarietalsList({varietal}) {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(`/wines/${varietal.id}`);
+    history.push(`/winesbyvarietal/${varietal.id}`);
   }
 
   return (
@@ -12,6 +12,7 @@ export default function WineVarietalsList({varietal}) {
       <li key={varietal.id}>
         {varietal.wine_varietal}
       </li>
+      <hr />
     </div>
   )
 }

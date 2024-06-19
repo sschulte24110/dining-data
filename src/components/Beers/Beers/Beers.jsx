@@ -29,8 +29,8 @@ export default function Beers() {
       </div>
       <ul className='specific-beer-list'>
         {beers.map((beer, i) => (
-          <div onClick={() => {history.push(`/editbeer/${beer.id}`)}}>
-            <li key={beer.id}>
+          <div key={beer.id} onClick={() => {history.push(`/editbeer/${beer.id}`)}}>
+            <li>
               <div className='beerName'>{beer.name}</div>
               <div className='beerBrewery'>{beer.brewery}</div>
             </li>

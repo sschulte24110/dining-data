@@ -13,12 +13,6 @@ export default function Beers() {
   useEffect(() => {
     dispatch({ type: 'FETCH_STYLE_BEER', payload: params.id });
   }, []);
-  console.log(params);
-  console.log(beers);
-
-  // const handleClick = () => {
-  //   history.push(`/editbeer/${beer.id}`);
-  // }
 
   return (
     <div className='container'>

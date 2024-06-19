@@ -5,7 +5,6 @@ import './BeerStyle.css';
 import BeerStyleList from '../BeerStyleList/BeerStyleList';
 
 export default function BeerStyle() {
-  const beers = useSelector((store) => store.beers);
   const styles = useSelector((store) => store.styles);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -15,9 +14,6 @@ export default function BeerStyle() {
     dispatch({ type: 'FETCH_STYLES'});
   }, []);
 
-  const handleClick = () => {
-    history.push(`/beer/${beer_style.id}`);
-  };
 
   return (
     <>

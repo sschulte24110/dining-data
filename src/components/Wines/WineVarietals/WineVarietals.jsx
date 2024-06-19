@@ -14,9 +14,6 @@ export default function WineVarietals() {
     dispatch({ type: 'FETCH_VARIETALS'});
   }, [])
 
-  const handleClick = () => {
-    history.push(`/wine/${wine_varietal.id}`)
-  }
 
   return (
     <div className='container'>

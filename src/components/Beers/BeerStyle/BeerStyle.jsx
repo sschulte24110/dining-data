@@ -21,10 +21,11 @@ export default function BeerStyle() {
 
   return (
     <>
-      <div>
+      <div className='container'>
         <div className='beer-header'>
-          <h5 className='home-button'>Home</h5>
+          <h5 onClick={() => history.push('/home')} className='home-button'>Home</h5>
           <h3>Beer Styles</h3>
+          <h5 onClick={() => history.push('/beerform')}>Add</h5>
         </div>
         <ul className='beer-styles-list'>
           {styles.map((style) => (

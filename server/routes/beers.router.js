@@ -18,8 +18,20 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 router.get('/:id', rejectUnauthenticated, (req, res) => {
   console.log(`Getting Beers with specific style`);
-  let queryText = `SELECT * FROM "beers" 
-JOIN "beer_style" on beer_style.id=beers.beer_style
+  let queryText = `SELECT 
+    beers.id,
+    beers.name,
+    beers.brewery,
+    beers.beer_style,
+    beers.abv,
+    beers.photo_url,
+    beers.description,
+    beers.vendor_id,
+    beer_style.beer_style AS beer_style_name
+FROM 
+    beers
+JOIN 
+    beer_style ON beers.beer_style = beer_style.id
 WHERE beer_style.id=$1
 ORDER BY name;`;
 pool.query(queryText, [req.params.id]).then((result) => {

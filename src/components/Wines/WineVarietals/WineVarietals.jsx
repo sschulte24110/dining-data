@@ -5,7 +5,6 @@ import './WineVarietals.css';
 import WineVarietalsList from '../WineVarietalsList/WineVarietalsList';
 
 export default function WineVarietals() {
-  const wines = useSelector((store) => store.wines);
   const varietals = useSelector((store) => store.varietals);
   const dispatch = useDispatch();
   const history = useHistory();

@@ -35,6 +35,10 @@ function Nav() {
             <Link className='navLink' to='/beerstyle'>
               Beers
             </Link>
+            
+            <Link className='navLink' to='/winevarietals'>
+              Wines
+            </Link>
 
             <Link className='navLink' to='/vendors'>
               Vendors

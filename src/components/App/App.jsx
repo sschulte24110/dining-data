@@ -31,6 +31,10 @@ import BeerStyle from '../Beers/BeerStyle/BeerStyle';
 import Beers from '../Beers/Beers/Beers';
 import BeerForm from '../Beers/BeerForm/BeerForm';
 import EditBeer from '../Beers/EditBeer/EditBeer';
+import WineVarietals from '../Wines/WineVarietals/WineVarietals';
+import WinesByVarietal from '../Wines/WinesByVarietal/WinesByVarietal';
+import WineForm from '../Wines/WineForm/WineForm';
+import EditWine from '../Wines/EditWine/EditWine';
 
 function App() {
   const dispatch = useDispatch();
@@ -85,6 +89,20 @@ function App() {
           <ProtectedRoute exact path='/editbeer/:id' component={EditBeer}>
             <EditBeer />
           </ProtectedRoute>
+
+          <ProtectedRoute exact path='/winevarietals'>
+            <WineVarietals />
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/winesbyvarietal/:id' component={WinesByVarietal}>
+            <WinesByVarietal />
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/wineform'>
+            <WineForm/>
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/editwine/:id' component={EditWine}>
+            <EditWine />
+          </ProtectedRoute>
+
           <ProtectedRoute exact path='/vendors'>
             <Vendors />
           </ProtectedRoute>

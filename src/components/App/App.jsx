@@ -28,6 +28,8 @@ import EditVendor from '../Vendors/EditVendor/EditVendor';
 
 import './App.css';
 import BeerStyle from '../Beers/BeerStyle/BeerStyle';
+import Beers from '../Beers/Beers/Beers';
+import BeerForm from '../Beers/BeerForm/BeerForm';
 
 function App() {
   const dispatch = useDispatch();
@@ -72,6 +74,12 @@ function App() {
 
           <ProtectedRoute exact path='/beerstyle'>
             <BeerStyle />
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/beers/:id' component={Beers}>
+            <Beers />
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/beerform'>
+            <BeerForm />
           </ProtectedRoute>
           <ProtectedRoute exact path='/vendors'>
             <Vendors />

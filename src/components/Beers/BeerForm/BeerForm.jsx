@@ -111,7 +111,7 @@ export default function BeerForm() {
             <br />
             <select
               name='vendorSelect'
-              id='style-dropdown'
+              id='vendor-dropdown'
               onChange={(event) => {
                 setNewBeer({ ...newBeer, vendor_id: event.target.value });
               }}

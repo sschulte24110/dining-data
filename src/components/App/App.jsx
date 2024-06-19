@@ -97,7 +97,7 @@ function App() {
             <WinesByVarietal />
           </ProtectedRoute>
           <ProtectedRoute exact path='/wineform'>
-            <WineForm/>
+            <WineForm />
           </ProtectedRoute>
           <ProtectedRoute exact path='/editwine/:id' component={EditWine}>
             <EditWine />

@@ -10,6 +10,16 @@ function* fetchWines() {
   }
 }
 
+function* addWine(action) {
+  try {
+    yield axios.post('api/wines', action.payload);
+    yield put({ type: 'FETCH_WINES'})
+  } catch (error) {
+    alert(`Error adding wine`);
+    console.error(error);
+  }
+}
+
 function* fetchWineByVarietal(action) {
   try {
     const response = yield axios.get(`api/wines/${action.payload}`);
@@ -24,6 +34,7 @@ function* fetchWineByVarietal(action) {
 function* winesSaga() {
   yield takeLatest('FETCH_WINES', fetchWines)
   yield takeLatest('FETCH_VARIETAL_WINE', fetchWineByVarietal);
+  yield takeLatest('ADD_WINE', addWine)
 }
 
 export default winesSaga;

@@ -5,6 +5,8 @@ import userSaga from './user.saga';
 import beersSaga from './beers.saga';
 import stylesSaga from './styles.saga';
 import vendorsSaga from './vendor.saga';
+import winesSaga from './wines.saga';
+import varietalsSaga from './varietals.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +23,7 @@ export default function* rootSaga() {
     beersSaga(),
     stylesSaga(),
     vendorsSaga(),
+    winesSaga(),
+    varietalsSaga(),
   ]);
 }

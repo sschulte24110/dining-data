@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import './BeerStyle.css';
 import BeerStyleList from '../BeerStyleList/BeerStyleList';

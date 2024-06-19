@@ -5,8 +5,6 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('/beers GET route');
-  console.log('is authenticated?', req.isAuthenticated());
-  console.log('user', req.user);
   let queryText = `SELECT * FROM "beers";`;
   pool.query(queryText).then((result) => {
       res.send(result.rows);
@@ -45,9 +43,6 @@ pool.query(queryText, [req.params.id]).then((result) => {
 
 router.post('/', rejectUnauthenticated, async (req, res) => {
   console.log('/beers POST route');
-  console.log(req.body);
-  console.log('is authenticated?', req.isAuthenticated());
-  console.log('user', req.user);
   const queryText = `INSERT INTO "beers" ("name", "brewery", "beer_style", "abv", "photo_url", "description", "vendor_id", "user_id")
 VALUES
 ($1, $2, $3, $4, $5, $6, $7, $8);`

@@ -6,9 +6,6 @@ const {
 } = require('../modules/authentication-middleware');
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-  console.log('/vendors GET route');
-  console.log('is authenticated?', req.isAuthenticated());
-  console.log('user', req.user);
   let queryText = `SELECT * FROM "vendors";`;
   pool
     .query(queryText)
@@ -22,10 +19,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.post('/', rejectUnauthenticated, async (req, res) => {
-  console.log('/vendors POST route');
-  console.log(req.body);
-  console.log('is authenticated?', req.isAuthenticated());
-  console.log('user', req.user);
   const queryText = `INSERT INTO "vendors" ("vendor_name", "contact_person_name","phone_number", "address", "city", "state", "zip_code", "email")
 VALUES
 ($1, $2, $3, $4, $5, $6, $7, $8);`;
@@ -48,9 +41,6 @@ VALUES
 });
 
 router.put('/:id', rejectUnauthenticated, async (req, res) => {
-  console.log(req.body);
-  console.log(`in /vendors put`);
-  
   const queryText =
     'UPDATE "vendors" SET vendor_name=$1, contact_person_name=$2, phone_number=$3, address=$4, city=$5, state=$6, zip_code=$7, email=$8 WHERE id=$9';
   await pool

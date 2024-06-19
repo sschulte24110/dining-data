@@ -129,7 +129,7 @@ export default function EditBeer() {
         <button
           className='btn btn-secondary'
           type='submit'
-          value='Add New Beer'
+          value='Update Beer'
         >
           Save
         </button>

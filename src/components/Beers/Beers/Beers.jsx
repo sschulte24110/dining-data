@@ -28,7 +28,7 @@ export default function Beers() {
         <h5 onClick={() => history.push('/beerform')}>Add</h5>
       </div>
       <ul className='specific-beer-list'>
-        {beers.map((beer) => (
+        {beers.map((beer, i) => (
           <div onClick={() => {history.push(`/editbeer/${beer.id}`)}}>
             <li key={beer.id}>
               <div className='beerName'>{beer.name}</div>

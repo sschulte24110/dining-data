@@ -1,9 +1,17 @@
+import { useHistory } from 'react-router-dom';
 
+export default function WineVarietalsList({varietal}) {
+  const history = useHistory();
 
-export default function WineVarietalsList() {
+  const handleClick = () => {
+    history.push(`/wines/${varietal.id}`);
+  }
+
   return (
-    <div>
-      
+    <div onClick={handleClick}>
+      <li key={varietal.id}>
+        {varietal.wine_varietal}
+      </li>
     </div>
   )
 }

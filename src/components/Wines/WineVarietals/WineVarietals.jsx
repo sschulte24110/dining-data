@@ -27,7 +27,9 @@ export default function WineVarietals() {
         <h5 onClick={() => history.push('/wineform')}>Add</h5>
       </div>
       <ul className='wine-varietals-list'>
-        
+        {varietals.map((varietal) => (
+          <WineVarietalsList key={varietal.id} varietal={varietal}/>
+        ))}
       </ul>
     </div>
   );

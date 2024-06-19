@@ -17,7 +17,7 @@ export default function Home() {
         <img src='../images/icons8-beer-mug-99.png' alt='Beer Mug Icon' />
         <h2>Beer</h2>
       </div>
-      <div onClick={() => history.push('/wines')}>
+      <div onClick={() => history.push('/winevarietals')}>
         <img src='../images/icons8-wine-glass-100 (1).png' alt='Wine Glass Icon' />
         <h2>Wine</h2>
       </div>

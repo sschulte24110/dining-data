@@ -23,7 +23,7 @@ function* addBeer(action) {
 function* fetchStyleBeer(action) {
   try {
     const styleBeerResponse = yield axios.get(`api/beers/${action.payload}`);
-    yield put({ type: 'SET_STYLE_BEER', payload: styleBeerResponse.data[0] });
+    yield put({ type: 'SET_STYLE_BEER', payload: styleBeerResponse.data });
     console.log(styleBeerResponse.data);
   } catch (error) {
     alert(`Error getting specific style of beer`);

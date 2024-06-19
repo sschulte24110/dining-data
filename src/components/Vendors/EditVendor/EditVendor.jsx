@@ -29,6 +29,11 @@ export default function EditVendor() {
     dispatch({ type: 'UPDATE_VENDOR', payload: vendor });
     history.push('/vendors');
   };
+
+  const deleteVendor = (vendorID) => {
+    dispatch({ type: 'DELETE_VENDOR', payload: vendorID})
+    history.push('/vendors');
+  };
   
   return (
     <div className='container'>
@@ -182,6 +187,8 @@ export default function EditVendor() {
         <button className='btn btn-secondary' type='submit' value='Update Vendor'>Save</button>
         <button className='btn btn-secondary' type='button' onClick={() => history.push('/vendors')} >Cancel</button>
       </form>
+      <br />
+      <button className='btn btn-secondary' onClick={() => deleteVendor(vendor.id)}>DELETE</button>
     </div>
   )
 }

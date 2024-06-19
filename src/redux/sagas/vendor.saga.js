@@ -30,10 +30,21 @@ function* updateVendor(action) {
   }
 }
 
+function* deleteVendor(action) {
+  try {
+    yield axios.delete(`api/vendors/${action.payload}`);
+    yield put({ type: 'FETCH_VENDORS'});
+  } catch (error) {
+    alert(`Error deleting vendor`);
+    console.log(`Error deleting vendor`, error);
+  }
+}
+
 function* vendorsSaga() {
   yield takeLatest('FETCH_VENDORS', fetchVendors)
   yield takeLatest('ADD_VENDOR', addVendor)
   yield takeLatest('UPDATE_VENDOR', updateVendor)
+  yield takeLatest('DELETE_VENDOR', deleteVendor)
 }
 
 export default vendorsSaga;

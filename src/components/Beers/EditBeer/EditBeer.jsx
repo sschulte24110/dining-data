@@ -31,6 +31,11 @@ export default function EditBeer() {
     history.push('/beerstyle');
   };
 
+  const deleteBeer = (beerID) => {
+    dispatch({ type: 'DELETE_BEER', payload: beerID});
+    history.push('/beerstyle');
+  }
+
   return (
     <div className='container'>
       <h3>{beer?.name}</h3>
@@ -141,6 +146,7 @@ export default function EditBeer() {
           Cancel
         </button>
       </form>
+      <button className='btn btn-secondary' onClick={() => deleteBeer(beer.id)} >DELETE</button>
     </div>
   );
 }

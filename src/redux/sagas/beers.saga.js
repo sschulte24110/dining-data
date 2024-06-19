@@ -41,11 +41,22 @@ function* updateBeer(action) {
   }
 }
 
+function* deleteBeer(action) {
+  try {
+    yield axios.delete(`/api/beers/${action.payload}`);
+    yield put({ type: 'FETCH_BEERS'});
+  } catch (error) {
+    alert(`Error deleting beer`);
+    console.log(`Error deleting beer`, error);
+  }
+}
+
 function* beersSaga() {
   yield takeLatest('FETCH_BEERS', fetchBeers);
   yield takeLatest('ADD_BEER', addBeer);
   yield takeLatest('FETCH_STYLE_BEER', fetchStyleBeer);
   yield takeLatest('UPDATE_BEER', updateBeer);
+  yield takeLatest('DELETE_BEER', deleteBeer)
 }
 
 export default beersSaga;

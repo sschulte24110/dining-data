@@ -30,6 +30,7 @@ import './App.css';
 import BeerStyle from '../Beers/BeerStyle/BeerStyle';
 import Beers from '../Beers/Beers/Beers';
 import BeerForm from '../Beers/BeerForm/BeerForm';
+import EditBeer from '../Beers/EditBeer/EditBeer';
 
 function App() {
   const dispatch = useDispatch();
@@ -80,6 +81,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute exact path='/beerform'>
             <BeerForm />
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/editbeer/:id' component={EditBeer}>
+            <EditBeer />
           </ProtectedRoute>
           <ProtectedRoute exact path='/vendors'>
             <Vendors />

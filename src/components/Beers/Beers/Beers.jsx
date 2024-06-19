@@ -16,6 +16,10 @@ export default function Beers() {
   console.log(params);
   console.log(beers);
 
+  // const handleClick = () => {
+  //   history.push(`/editbeer/${beer.id}`);
+  // }
+
   return (
     <div className='container'>
       <div className='beer-header'>
@@ -25,7 +29,7 @@ export default function Beers() {
       </div>
       <ul className='specific-beer-list'>
         {beers.map((beer) => (
-          <div>
+          <div onClick={() => {history.push(`/editbeer/${beer.id}`)}}>
             <li key={beer.id}>
               <div className='beerName'>{beer.name}</div>
               <div className='beerBrewery'>{beer.brewery}</div>

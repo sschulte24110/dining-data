@@ -61,6 +61,10 @@ function App() {
             <AboutPage />
           </Route>
 
+          <Route exact path='/landingpage'>
+            <LandingPage />
+          </Route>
+
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:5173/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
@@ -136,7 +140,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to='/user' />
+              <Redirect to='/home' />
             ) : (
               // Otherwise, show the registration page
               <RegisterPage />
@@ -160,7 +164,6 @@ function App() {
           </Route>
         </Switch>
         <Footer />
-        <Nav />
       </div>
     </Router>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import Nav from '../Nav/Nav';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -7,7 +8,12 @@ import './Footer.css';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 function Footer() {
-  return <footer>&copy; Scott Schulte 2024</footer>;
+  return (
+    <>
+      <footer>&copy; Scott Schulte 2024</footer>
+      <Nav />
+    </>
+  );
 }
 
 export default Footer;

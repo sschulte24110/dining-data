@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_USER" actions
 function* fetchUser() {
@@ -34,9 +34,26 @@ function* deleteUser(action) {
   }
 }
 
+export const toggleAdminRequest = (userID, isAdmin) => ({
+  type: 'TOGGLE_ADMIN_REQUEST',
+  payload: { userID, isAdmin },
+})
+
+function* toggleAdminStatus(action) {
+  try {
+    const { userID, isAdmin } = action.payload;
+    yield call(axios.put, `api/user/${userID}/admin`, { isAdmin });
+    yield put({ type: 'TOGGLE_ADMIN_SUCCESS', payload: { userID, isAdmin }})
+  } catch (error) {
+    console.log(`Error toggling admin status`);
+    yield put({ type: 'TOGGLE_ADMIN_FAILURE', error})
+  }
+}
+
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
   yield takeLatest('DELETE_USER', deleteUser);
+  yield takeLatest('TOGGLE_ADMIN_REQUEST', toggleAdminStatus)
 }
 
 export default userSaga;

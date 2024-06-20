@@ -10,6 +10,8 @@ import Nav from '../Nav/Nav';
 function Footer() {
   return (
     <>
+      <br />
+      <br />
       <Nav />
     </>
   );

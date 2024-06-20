@@ -63,6 +63,21 @@ router.post('/logout', (req, res, next) => {
   });
 });
 
+router.put(`/:id/admin`, rejectUnauthenticated, (req, res) => {
+  const userId = req.params.id;
+  const { isAdmin } = req.body;
+  
+  const queryText = `UPDATE "user" SET "admin_status" = $1 WHERE "id" = $2;`;
+  
+  pool
+    .query(queryText, [isAdmin, userId])
+    .then(() => res.sendStatus(200))
+    .catch((error) => {
+      console.log('Error in updating admin status', error);
+      res.sendStatus(500);
+    });
+});
+
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
   const queryText = `DELETE FROM "user" WHERE "id"=$1;`;

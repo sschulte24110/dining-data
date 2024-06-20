@@ -1,4 +1,13 @@
 .home-logo {
-  width: 600px;
-  height: auto;
+  padding-bottom: 30px;
+}
+
+.home-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-icon-button {
+  text-align: center;
 }

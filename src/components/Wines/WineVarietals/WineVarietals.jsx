@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import './WineVarietals.css';
 import WineVarietalsList from '../WineVarietalsList/WineVarietalsList';
+import SearchInput from '../../Search/SearchInput/SearchInput';
 
 export default function WineVarietals() {
   const varietals = useSelector((store) => store.varietals);
@@ -23,6 +24,7 @@ export default function WineVarietals() {
         <h3>Wine Varietals</h3>
         <h5 onClick={() => history.push('/wineform')}>Add</h5>
       </div>
+      <SearchInput />
       <ul className='wine-varietals-list'>
         {varietals.map((varietal) => (
           <WineVarietalsList key={varietal.id} varietal={varietal} />

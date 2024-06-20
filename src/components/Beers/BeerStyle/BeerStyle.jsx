@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import './BeerStyle.css';
 import BeerStyleList from '../BeerStyleList/BeerStyleList';
+import SearchInput from '../../Search/SearchInput/SearchInput';
 
 export default function BeerStyle() {
   const styles = useSelector((store) => store.styles);
@@ -17,12 +18,14 @@ export default function BeerStyle() {
 
   return (
     <>
+      
       <div className='container'>
         <div className='beer-header'>
           <h5 onClick={() => history.push('/home')} className='home-button'>Home</h5>
           <h3>Beer Styles</h3>
           <h5 onClick={() => history.push('/beerform')}>Add</h5>
         </div>
+        <SearchInput />
         <ul className='beer-styles-list'>
           {styles.map((style) => (
             <BeerStyleList key={style.id} style={style} />

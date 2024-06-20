@@ -14,7 +14,7 @@ export default function WinesByVarietal() {
   useEffect(() => {
     dispatch({ type: 'FETCH_VARIETAL_WINE', payload: params.id });
   }, []);
-  console.log(`params`, params);
+  
 
   return (
     <div className='container'>

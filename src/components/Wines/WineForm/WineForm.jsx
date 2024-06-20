@@ -47,7 +47,7 @@ export default function WineForm() {
           />
         </div>
         <div>
-          <label htmlFor='beer'>Varietal</label>
+          <label htmlFor='varietal'>Varietal</label>
           <br />
           <select
             name='varietalSelect'

@@ -1,0 +1,12 @@
+.users {
+  list-style-type: none;
+}
+
+.users-header {
+  display: flex;
+  height: 50px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+}

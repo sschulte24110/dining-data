@@ -6,6 +6,7 @@ import styles from './styles.reducer';
 import vendors from './vendor.reducer';
 import wines from './wines.reducer';
 import varietals from './varietals.reducer';
+import users from './users.reducer';
 
 
 // rootReducer is the primary reducer for our entire project
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   vendors,
   wines,
   varietals,
+  users,
 });
 
 export default rootReducer;

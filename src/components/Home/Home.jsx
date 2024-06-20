@@ -25,7 +25,7 @@ export default function Home() {
         <img src='../images/icons8-delivery-truck-100.png' alt='Delivery Truck Icon' />
         <h2>Vendors</h2>
       </div>
-      <div>
+      <div onClick={() => history.push('/user')}>
       <img src="../images/icons8-user-96.png" alt="User Icon" />
         <h2>Users</h2>
       </div>

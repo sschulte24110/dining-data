@@ -8,6 +8,7 @@ function RegisterPage() {
 
   return (
     <div>
+       <img className='login-logo' src="../images/dining-data-vert.png" alt="Dining Data Logo" />
       <RegisterForm />
 
       <center>

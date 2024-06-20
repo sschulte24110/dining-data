@@ -26,7 +26,6 @@ function LoginForm() {
 
   return (
     <form className="formPanel" onSubmit={login}>
-      <img className='login-logo' src="../images/dining-data-vert.png" alt="Dining Data Logo" />
       <h2>Sign In</h2>
       <h3>Welcome Back!</h3>
       {errors.loginMessage && (

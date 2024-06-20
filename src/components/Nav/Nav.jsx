@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Nav() {
+  const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
 
   return (
@@ -44,7 +45,11 @@ function Nav() {
               Vendors
             </Link>
 
-            <LogOutButton className='navLink' />
+            <Link onClick={() => dispatch({ type: 'LOGOUT' })} className='navLink' to='/login'>
+              Log Out
+            </Link>
+            
+            {/* <LogOutButton className='navLink' /> */}
           </>
         )}
 

@@ -10,7 +10,6 @@ import Nav from '../Nav/Nav';
 function Footer() {
   return (
     <>
-      <footer>&copy; Scott Schulte 2024</footer>
       <Nav />
     </>
   );

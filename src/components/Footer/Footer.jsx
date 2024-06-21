@@ -12,6 +12,8 @@ function Footer() {
     <>
       <br />
       <br />
+      <br />
+      <br />
       <Nav />
     </>
   );

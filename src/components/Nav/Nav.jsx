@@ -2,7 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faBeer, faWineGlassAlt, faStoreAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faHome,
+  faBeer,
+  faWineGlassAlt,
+  faStoreAlt,
+  faSignOutAlt,
+} from '@fortawesome/free-solid-svg-icons';
 import './Nav.css';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -27,31 +33,35 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <Link className='navLink' to='/home'>
-              Home
-            </Link>
-
-            {/* <Link className='navLink' to='/info'>
-              Info Page
-            </Link> */}
-
-            <Link className='navLink' to='/beerstyle'>
-              Beers
-            </Link>
-            
-            <Link className='navLink' to='/winevarietals'>
-              Wines
-            </Link>
-
-            <Link className='navLink' to='/vendors'>
-              Vendors
-            </Link>
-
-            <Link onClick={() => dispatch({ type: 'LOGOUT' })} className='navLink' to='/login'>
-              Log Out
-            </Link>
-            
-            <LogOutButton className='navLink' />
+            <li className='nav-item'>
+              <Link className='nav-link' to='/home'>
+                <FontAwesomeIcon icon={faHome} /> Home
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link className='nav-link' to='/beerstyle'>
+                <FontAwesomeIcon icon={faBeer} /> Beers
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link className='nav-link' to='/winevarietals'>
+                <FontAwesomeIcon icon={faWineGlassAlt} /> Wines
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link className='nav-link' to='/vendors'>
+                <FontAwesomeIcon icon={faStoreAlt} /> Vendors
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link
+                className='nav-link'
+                to='/login'
+                onClick={() => dispatch({ type: 'LOGOUT' })}
+              >
+                <FontAwesomeIcon icon={faSignOutAlt} /> LogOut
+              </Link>
+            </li>
           </>
         )}
 
@@ -64,3 +74,7 @@ function Nav() {
 }
 
 export default Nav;
+
+{
+  /* <LogOutButton className='navLink' /> */
+}

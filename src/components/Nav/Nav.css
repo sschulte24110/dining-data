@@ -20,7 +20,7 @@
   width: 100%; /* Make the inner div take full width */
 }
 
-.navLink {
+.nav-link {
   flex: 1; /* Each link will take up equal space */
   text-align: center; /* Center text horizontally within each flex item */
   color: antiquewhite;
@@ -28,6 +28,6 @@
   font-size: 16px;
 }
 
-.navLink:hover {
+.nav-link:hover {
   color: #b8bbba;
 }

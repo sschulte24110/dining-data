@@ -186,7 +186,7 @@ export default function EditVendor() {
         </div>
         <button className='btn btn-secondary' type='submit' value='Update Vendor'>Save</button>
         <button className='btn btn-secondary' type='button' onClick={() => history.push('/vendors')} >Cancel</button>
-      <button className='btn btn-secondary' onClick={() => deleteVendor(vendor.id)}>Delete</button>
+      <button className='btn btn-secondary' onClick={() => deleteVendor(vendor.vendor_name)}>Delete</button>
       </form>
       <br />
     </div>

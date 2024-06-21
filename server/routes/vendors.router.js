@@ -6,7 +6,7 @@ const {
 } = require('../modules/authentication-middleware');
 
 router.get('/', rejectUnauthenticated, (req, res) => {
-  let queryText = `SELECT * FROM "vendors";`;
+  let queryText = `SELECT * FROM "vendors" WHERE deleted = FALSE;`;
   pool
     .query(queryText)
     .then((result) => {
@@ -66,7 +66,7 @@ router.put('/:id', rejectUnauthenticated, async (req, res) => {
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
-  const queryText = `DELETE FROM "vendors" WHERE "id"=$1;`;
+  const queryText = `UPDATE "vendors" SET deleted = true WHERE id=$1;`;
   pool
     .query(queryText, [req.params.id])
     .then(() => {

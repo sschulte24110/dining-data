@@ -9,7 +9,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('/wines GET route');
   console.log('is authenticated?', req.isAuthenticated());
   console.log('user', req.user);
-  let queryText = `SELECT * FROM "wines";`;
+  let queryText = `SELECT * FROM "wines" WHERE deleted = FALSE;`;
   pool
     .query(queryText)
     .then((result) => {
@@ -100,7 +100,7 @@ router.put('/:id', rejectUnauthenticated, async (req, res) => {
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
-  const queryText = `DELETE FROM "wines" WHERE "id"=$1;`;
+  const queryText = `UPDATE "wines" SET deleted = true WHERE id=$1;`;
   pool
     .query(queryText, [req.params.id])
     .then(() => {

@@ -15,7 +15,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.get('/users/', rejectUnauthenticated, (req, res) => {
-  let queryText = `SELECT * FROM "user" ORDER BY id;`;
+  let queryText = `SELECT * FROM "user" WHERE deleted = false ORDER BY id;`;
   pool
     .query(queryText)
     .then((result) => {
@@ -80,7 +80,7 @@ router.put(`/:id/admin`, rejectUnauthenticated, (req, res) => {
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
-  const queryText = `DELETE FROM "user" WHERE "id"=$1;`;
+  const queryText = `UPDATE "user" SET deleted = true WHERE "id"=$1;`;
   pool
     .query(queryText, [req.params.id])
     .then(() => {

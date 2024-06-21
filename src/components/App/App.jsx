@@ -60,9 +60,9 @@ function App() {
             <AboutPage />
           </Route>
 
-          <Route exact path='/landingpage'>
+          {/* <Route exact path='/landingpage'>
             <LandingPage />
-          </Route>
+          </Route> */}
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:5173/user will show the UserPage if the user is logged in.

@@ -1,8 +1,14 @@
 import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
 import './Home.css';
 
 export default function Home() {
   const history = useHistory();
+  const users = useSelector((store => store.users))
+  console.log(users);
+
+  const [admin_status, setAdmin_status] = useState(true);
 
   return (
     <div className='container'>
@@ -32,10 +38,12 @@ export default function Home() {
           />
           <h2>Vendors</h2>
         </div>
+        {users.admin_status && (
         <div className='home-icon-button'  onClick={() => history.push('/user')}>
           <img src='../images/icons8-user-96.png' alt='User Icon' />
           <h2>Users</h2>
         </div>
+        )}
       </div>
     </div>
   );

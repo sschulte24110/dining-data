@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import './WinesByVarietal.css';
+import WineSearch from '../WineSearch/WineSearch';
 
 export default function WinesByVarietal() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ export default function WinesByVarietal() {
         <h4>{wines[0].wine_varietal_name}</h4>
         <h6 onClick={() => history.push('/wineform')}>Add</h6>
       </div>
+      <WineSearch />
       <ul className="specific-wine-list">
         {wines.map((wine, i) => (
           <div key={wine.id} onClick={() => {history.push(`editwine/${wine.id}`)}}>

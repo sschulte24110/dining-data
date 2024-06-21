@@ -9,7 +9,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('/wines GET route');
   console.log('is authenticated?', req.isAuthenticated());
   console.log('user', req.user);
-  let queryText = `SELECT * FROM "wines" WHERE deleted = FALSE;`;
+  let queryText = `SELECT * FROM "wines" WHERE deleted = FALSE ORDER BY name_winery;`;
   pool
     .query(queryText)
     .then((result) => {

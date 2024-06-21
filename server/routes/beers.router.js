@@ -7,7 +7,7 @@ const {
 
 router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('/beers GET route');
-  let queryText = `SELECT * FROM "beers";`;
+  let queryText = `SELECT * FROM "beers" WHERE deleted = FALSE;`;
   pool
     .query(queryText)
     .then((result) => {
@@ -76,8 +76,7 @@ router.put('/:id', rejectUnauthenticated, async (req, res) => {
   console.log(req.body);
   console.log(`in /beers put`);
 
-  const queryText =
-    `UPDATE "beers" SET name=$1, brewery=$2, beer_style=$3, abv=$4, photo_url=$5, description=$6, vendor_id=$7 WHERE id=$8 AND "user_id"=$9;`;
+  const queryText = `UPDATE "beers" SET name=$1, brewery=$2, beer_style=$3, abv=$4, photo_url=$5, description=$6, vendor_id=$7 WHERE id=$8 AND "user_id"=$9;`;
   await pool
     .query(queryText, [
       req.body.name,
@@ -101,7 +100,7 @@ router.put('/:id', rejectUnauthenticated, async (req, res) => {
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
-  const queryText = `DELETE FROM "beers" WHERE "id"=$1;`;
+  const queryText = `UPDATE "beers" SET deleted = true WHERE id=$1;`;
   pool
     .query(queryText, [req.params.id])
     .then(() => {

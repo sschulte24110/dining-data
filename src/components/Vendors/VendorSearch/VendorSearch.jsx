@@ -17,7 +17,7 @@ export default function VendorSearch() {
           id='free-solo-2-demo'
           disableClearable
           options={vendors}
-          getOptionLabel={(option) => option.name}
+          getOptionLabel={(option) => option.vendor_name}
           renderInput={(params) => (
             <TextField
               {...params}

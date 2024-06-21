@@ -64,11 +64,11 @@ router.put('/:id', rejectUnauthenticated, async (req, res) => {
     });
 });
 
-router.delete('/:vendor_name', rejectUnauthenticated, (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
-  const queryText = `UPDATE "vendors" SET deleted = true WHERE vendor_name=$1;`;
+  const queryText = `UPDATE "vendors" SET deleted = true WHERE id=$1;`;
   pool
-    .query(queryText, [req.params.vendor_name])
+    .query(queryText, [req.params.id])
     .then(() => {
       res.sendStatus(200);
     })

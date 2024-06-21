@@ -17,7 +17,7 @@ export default function WineSearch() {
           id='free-solo-2-demo'
           disableClearable
           options={wines}
-          getOptionLabel={(option) => option.name}
+          getOptionLabel={(option) => option.name_winery}
           renderInput={(params) => (
             <TextField
               {...params}
@@ -32,7 +32,7 @@ export default function WineSearch() {
           )}
           onChange={(event, value) => {
             if (value) {
-              history.push(`/editwine/${value.id}`);
+              history.push(`/winesbyvarietal/editwine/${value.id}`);
             }
           }}
         />

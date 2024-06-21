@@ -8,7 +8,7 @@ export default function Home() {
   const users = useSelector((store => store.users))
   console.log(users);
 
-  const [admin_status, setAdmin_status] = useState(true);
+ 
 
   return (
     <div className='container'>

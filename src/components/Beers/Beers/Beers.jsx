@@ -21,7 +21,7 @@ export default function Beers() {
         <h6 onClick={() => history.push('/beerstyle')} className='home-button'>
           Back
         </h6>
-        <h3>{beers[0].beer_style_name}</h3>
+        <h4>{beers[0].beer_style_name}</h4>
         <h6 onClick={() => history.push('/beerform')}>Add</h6>
       </div>
       <ul className='specific-beer-list'>

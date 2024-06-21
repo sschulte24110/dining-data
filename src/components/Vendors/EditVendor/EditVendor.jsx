@@ -37,7 +37,7 @@ export default function EditVendor() {
   
   return (
     <div className='container'>
-      <h2>{vendor?.vendor_name}</h2>
+      <h1 className='indiv-vendor-name'>{vendor?.vendor_name}</h1>
       <form onSubmit={handleSubmit}>
         <div className='col-lg-12'>
           <div className='mb-3'>
@@ -186,9 +186,9 @@ export default function EditVendor() {
         </div>
         <button className='btn btn-secondary' type='submit' value='Update Vendor'>Save</button>
         <button className='btn btn-secondary' type='button' onClick={() => history.push('/vendors')} >Cancel</button>
+      <button className='btn btn-secondary' onClick={() => deleteVendor(vendor.id)}>Delete</button>
       </form>
       <br />
-      <button className='btn btn-secondary' onClick={() => deleteVendor(vendor.id)}>DELETE</button>
     </div>
   )
 }

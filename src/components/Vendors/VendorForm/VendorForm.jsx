@@ -28,7 +28,7 @@ export default function VendorForm() {
   return (
     <div className='container'>
       <div className='header'>
-        <h3>Add New Vendor</h3>
+        <h1 className='indiv-vendor-name'>Add New Vendor</h1>
       </div>
       <form onSubmit={handleSubmit}>
         <div className='col-lg-12'>

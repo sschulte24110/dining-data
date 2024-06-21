@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import './Beers.css';
+import BeerSearch from '../BeerSearch/BeerSearch';
 
 export default function Beers() {
   const params = useParams();
@@ -24,6 +25,7 @@ export default function Beers() {
         <h4>{beers[0].beer_style_name}</h4>
         <h6 onClick={() => history.push('/beerform')}>Add</h6>
       </div>
+      <BeerSearch />
       <ul className='specific-beer-list'>
         {beers.map((beer, i) => (
           <div

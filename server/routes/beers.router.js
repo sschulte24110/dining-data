@@ -7,7 +7,7 @@ const {
 
 router.get('/', rejectUnauthenticated, (req, res) => {
   console.log('/beers GET route');
-  let queryText = `SELECT * FROM "beers" WHERE deleted = FALSE;`;
+  let queryText = `SELECT * FROM "beers" WHERE deleted = FALSE ORDER BY name;`;
   pool
     .query(queryText)
     .then((result) => {

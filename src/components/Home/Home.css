@@ -1,13 +1,15 @@
 .home-logo {
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 .home-icons {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
 
 .home-icon-button {
   text-align: center;
+  margin: 10px 0;
 }

@@ -6,10 +6,8 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-
 import { useDispatch, useSelector } from 'react-redux';
 
-import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
@@ -26,15 +24,16 @@ import Vendors from '../Vendors/Vendors';
 import VendorForm from '../Vendors/VendorForm/VendorForm';
 import EditVendor from '../Vendors/EditVendor/EditVendor';
 
-import './App.css';
 import BeerStyle from '../Beers/BeerStyle/BeerStyle';
 import Beers from '../Beers/Beers/Beers';
 import BeerForm from '../Beers/BeerForm/BeerForm';
 import EditBeer from '../Beers/EditBeer/EditBeer';
+
 import WineVarietals from '../Wines/WineVarietals/WineVarietals';
 import WinesByVarietal from '../Wines/WinesByVarietal/WinesByVarietal';
 import WineForm from '../Wines/WineForm/WineForm';
 import EditWine from '../Wines/EditWine/EditWine';
+import './App.css';
 
 function App() {
   const dispatch = useDispatch();

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faBeer, faWineGlassAlt, faStoreAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import './Nav.css';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -49,7 +51,7 @@ function Nav() {
               Log Out
             </Link>
             
-            {/* <LogOutButton className='navLink' /> */}
+            <LogOutButton className='navLink' />
           </>
         )}
 

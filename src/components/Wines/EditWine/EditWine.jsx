@@ -38,7 +38,7 @@ export default function EditWine() {
 
   return (
     <div className='container'>
-      <h3>{wine?.name_winery}</h3>
+      <h1 className='indiv-wine-name'>{wine?.name_winery}</h1>
       <form onSubmit={handleSubmit}>
         <div className='col-lg-12'>
           <div className='mb-3'>
@@ -57,79 +57,96 @@ export default function EditWine() {
             />
           </div>
         </div>
-        <div>
-          <label htmlFor='beer'>Varietal</label>
-          <br />
-          <select
-            name='varietalSelect'
-            id='varietal-dropdown'
-            onChange={(event) => {
-              setWine({ ...wine, wine_varietal_id: event.target.value });
-            }}
-          >
-            <option>Select Varietal</option>
-            {varietals.map((varietal, i) => {
-              return (
-                <option key={i} value={varietal.id}>
-                  {varietal.wine_varietal}
-                </option>
-              );
-            })}
-          </select>
+        <div className='col-lg-12'>
+          <div className='mb-3'>
+            <label htmlFor='beer'>Varietal</label>
+            <br />
+            <select
+              name='varietalSelect'
+              className='form-select'
+              id='varietal-dropdown'
+              onChange={(event) => {
+                setWine({ ...wine, wine_varietal_id: event.target.value });
+              }}
+            >
+              <option>Select Varietal</option>
+              {varietals.map((varietal, i) => {
+                return (
+                  <option key={i} value={varietal.id}>
+                    {varietal.wine_varietal}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         </div>
-        <div>
-          <label htmlFor='wineRegion'>Region</label>
-          <br />
-          <input
-            type='text'
-            placeholder={wine?.region}
-            value={wine?.region}
-            onChange={(event) =>
-              setWine({ ...wine, region: event.target.value })
-            }
-          />
+        <div className='col-lg-12'>
+          <div className='mb-3'>
+            <label htmlFor='wineRegion'>Region</label>
+            <br />
+            <input
+              type='text'
+              className='form-control custom-margin'
+              placeholder={wine?.region}
+              value={wine?.region}
+              onChange={(event) =>
+                setWine({ ...wine, region: event.target.value })
+              }
+            />
+          </div>
         </div>
-        <div>
-          <label htmlFor='wineYear'>Year</label>
-          <br />
-          <input
-            type='text'
-            placeholder={wine?.year}
-            value={wine?.year}
-            onChange={(event) => setWine({ ...wine, year: event.target.value })}
-          />
+        <div className='col-lg-12'>
+          <div className='mb-3'>
+            <label htmlFor='wineYear'>Year</label>
+            <br />
+            <input
+              type='text'
+              className='form-control custom-margin'
+              placeholder={wine?.year}
+              value={wine?.year}
+              onChange={(event) =>
+                setWine({ ...wine, year: event.target.value })
+              }
+            />
+          </div>
         </div>
-        <div>
-          <label htmlFor='wineDescription'>Description</label>
-          <br />
-          <textarea
-            type='text'
-            placeholder={wine?.description}
-            value={wine?.description}
-            onChange={(event) =>
-              setWine({ ...wine, description: event.target.value })
-            }
-          />
+        <div className='col-lg-12'>
+          <div className='mb-3'>
+            <label htmlFor='wineDescription'>Description</label>
+            <br />
+            <textarea
+              type='text'
+              className='form-control custom-margin'
+              placeholder={wine?.description}
+              value={wine?.description}
+              onChange={(event) =>
+                setWine({ ...wine, description: event.target.value })
+              }
+            />
+          </div>
         </div>
-        <div>
-          <label htmlFor='wineVendor'>Vendor</label>
-          <br />
-          <select
-            name='vendorSelect'
-            id='style-dropdown'
-            onChange={(event) => {
-              setWine({ ...wine, vendor_id: event.target.value });
-            }}
-          >
-            <option>Select Vendor</option>
-            {vendors.map((vendor, i) => {
-              return (
-                <option key={i} value={vendor.id}>
-                  {vendor.vendor_name}
-                </option>
-              );
-            })}
-          </select>
+        <div className='col-lg-12'>
+          <div className='mb-3'>
+            <label htmlFor='wineVendor'>Vendor</label>
+            <br />
+            <select
+              name='vendorSelect'
+              className='form-select'
+              id='style-dropdown'
+              onChange={(event) => {
+                setWine({ ...wine, vendor_id: event.target.value });
+              }}
+            >
+              <option>Select Vendor</option>
+              {vendors.map((vendor, i) => {
+                return (
+                  <option key={i} value={vendor.id}>
+                    {vendor.vendor_name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         </div>
         <button className='btn btn-secondary' type='submit' value='Update Wine'>
           Save
@@ -141,10 +158,13 @@ export default function EditWine() {
         >
           Cancel
         </button>
+        <button
+          className='btn btn-secondary'
+          onClick={() => deleteWine(wine.id)}
+        >
+          Delete
+        </button>
       </form>
-      <button className='btn btn-secondary' onClick={() => deleteWine(wine.id)}>
-        DELETE
-      </button>
     </div>
   );
 }

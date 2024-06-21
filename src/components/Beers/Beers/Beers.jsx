@@ -18,11 +18,11 @@ export default function Beers() {
   return (
     <div className='container'>
       <div className='beer-header'>
-        <h5 onClick={() => history.push('/beerstyle')} className='home-button'>
-          Styles
-        </h5>
+        <h6 onClick={() => history.push('/beerstyle')} className='home-button'>
+          Back
+        </h6>
         <h3>{beers[0].beer_style_name}</h3>
-        <h5 onClick={() => history.push('/beerform')}>Add</h5>
+        <h6 onClick={() => history.push('/beerform')}>Add</h6>
       </div>
       <ul className='specific-beer-list'>
         {beers.map((beer, i) => (

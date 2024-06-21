@@ -21,9 +21,9 @@ export default function BeerStyle() {
       
       <div className='container'>
         <div className='beer-header'>
-          <h5 onClick={() => history.push('/home')} className='home-button'>Home</h5>
-          <h3>Beer Styles</h3>
-          <h5 onClick={() => history.push('/beerform')}>Add</h5>
+          <h6 onClick={() => history.push('/home')} className='home-button'>Home</h6>
+          <h2>Beer Styles</h2>
+          <h6 onClick={() => history.push('/beerform')}>Add</h6>
         </div>
         <SearchInput />
         <ul className='beer-styles-list'>

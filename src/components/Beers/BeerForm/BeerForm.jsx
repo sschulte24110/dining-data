@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './BeerForm.css';
 
 export default function BeerForm() {
   const beers = useSelector((store) => store.beers);
@@ -24,7 +25,7 @@ export default function BeerForm() {
   useEffect(() => {
     dispatch({ type: 'FETCH_BEERS' });
     dispatch({ type: 'FETCH_STYLES' });
-    dispatch({ type: 'FETCH_VENDORS'});
+    dispatch({ type: 'FETCH_VENDORS' });
   }, []);
 
   const handleSubmit = (event) => {
@@ -32,17 +33,18 @@ export default function BeerForm() {
     dispatch({ type: 'ADD_BEER', payload: newBeer });
     history.push('/beerstyle');
   };
-  
-  
+
   return (
     <div className='container'>
-        <h3>Add New Beer</h3>
-        <form onSubmit={handleSubmit}>
-          <div>
+      <h1 className='indiv-beer-name'>Add New Beer</h1>
+      <form onSubmit={handleSubmit}>
+        <div className='col-lg-12'>
+          <div className='mb-3'>
             <label htmlFor='beerName'>Name</label>
             <br />
             <input
               type='text'
+              className='form-control custom-margin'
               placeholder='Name'
               value={newBeer.name}
               onChange={(event) =>
@@ -50,11 +52,14 @@ export default function BeerForm() {
               }
             />
           </div>
-          <div>
+        </div>
+        <div className='col-lg-12'>
+          <div className='mb-3'>
             <label htmlFor='beerBrewery'>Brewery</label>
             <br />
             <input
               type='text'
+              className='form-control custom-margin'
               placeholder='Brewery'
               value={newBeer.brewery}
               onChange={(event) =>
@@ -62,11 +67,14 @@ export default function BeerForm() {
               }
             />
           </div>
-          <div>
+        </div>
+        <div className='col-lg-12'>
+          <div className='mb-3'>
             <label htmlFor='beer'>Style</label>
             <br />
             <select
               name='styleSelect'
+              className='form-select'
               id='style-dropdown'
               onChange={(event) => {
                 setNewBeer({ ...newBeer, beer_style: event.target.value });
@@ -82,11 +90,14 @@ export default function BeerForm() {
               })}
             </select>
           </div>
-          <div>
+        </div>
+        <div className='col-lg-12'>
+          <div className='mb-3'>
             <label htmlFor='beerABV'>ABV</label>
             <br />
             <input
               type='text'
+              className='form-control custom-margin'
               placeholder='ABV'
               value={newBeer.abv}
               onChange={(event) =>
@@ -94,11 +105,14 @@ export default function BeerForm() {
               }
             />
           </div>
-          <div>
+        </div>
+        <div className='col-lg-12'>
+          <div className='mb-3'>
             <label htmlFor='beerDescription'>Description</label>
             <br />
             <textarea
               type='text'
+              className='form-control custom-margin'
               placeholder='Description'
               value={newBeer.description}
               onChange={(event) =>
@@ -106,11 +120,14 @@ export default function BeerForm() {
               }
             />
           </div>
-          <div>
+        </div>
+        <div className='col-lg-12'>
+          <div className='mb-3'>
             <label htmlFor='beerVendor'>Vendor</label>
             <br />
             <select
               name='vendorSelect'
+              className='form-select'
               id='vendor-dropdown'
               onChange={(event) => {
                 setNewBeer({ ...newBeer, vendor_id: event.target.value });
@@ -126,9 +143,22 @@ export default function BeerForm() {
               })}
             </select>
           </div>
-          <button className='btn btn-secondary' type='submit' value='Add New Beer'>Save</button>
-        <button className='btn btn-secondary' type='button' onClick={() => history.push('/beerstyle')} >Cancel</button>
-        </form>
-      </div>
-  )
+        </div>
+        <button
+          className='btn btn-secondary'
+          type='submit'
+          value='Add New Beer'
+        >
+          Save
+        </button>
+        <button
+          className='btn btn-secondary'
+          type='button'
+          onClick={() => history.push('/beerstyle')}
+        >
+          Cancel
+        </button>
+      </form>
+    </div>
+  );
 }

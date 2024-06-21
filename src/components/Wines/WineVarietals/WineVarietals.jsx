@@ -18,11 +18,11 @@ export default function WineVarietals() {
   return (
     <div className='container'>
       <div className='wine-header'>
-        <h5 onClick={() => history.push('/home')} className='home-button'>
+        <h6 onClick={() => history.push('/home')} className='home-button'>
           Home
-        </h5>
+        </h6>
         <h3>Wine Varietals</h3>
-        <h5 onClick={() => history.push('/wineform')}>Add</h5>
+        <h6 onClick={() => history.push('/wineform')}>Add</h6>
       </div>
       <SearchInput />
       <ul className='wine-varietals-list'>

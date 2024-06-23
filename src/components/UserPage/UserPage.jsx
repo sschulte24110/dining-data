@@ -13,7 +13,7 @@ const history = useHistory()
     <div className='container'>
       <div>
         <div className='users-header'>
-          <h5 onClick={() => history.push('/home')}>Home</h5>
+          <h6 className='user-home-button' onClick={() => history.push('/home')}>Home</h6>
           <h1>Manage Users</h1>
         </div>
         <div className='user-info'>

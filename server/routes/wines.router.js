@@ -31,11 +31,12 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 	wines.year,
 	wines.photo_url,
 	wines.description,
-	wines.vendor_id, 
+	wines.vendor_id,
+  wines.deleted,
 	wine_varietal.wine_varietal as wine_varietal_name
 FROM wines
 JOIN wine_varietal ON wines.wine_varietal_id = wine_varietal.id
-WHERE wine_varietal.id=$1
+WHERE wine_varietal.id=$1 and wines.deleted=false
 ORDER BY name_winery;`;
   pool
     .query(queryText, [req.params.id])

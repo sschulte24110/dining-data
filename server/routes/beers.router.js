@@ -30,12 +30,13 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     beers.photo_url,
     beers.description,
     beers.vendor_id,
+    beers.deleted,
     beer_style.beer_style AS beer_style_name
 FROM 
     beers
 JOIN 
     beer_style ON beers.beer_style = beer_style.id
-WHERE beer_style.id=$1
+WHERE beer_style.id=$1 and beers.deleted=false
 ORDER BY name;`;
   pool
     .query(queryText, [req.params.id])

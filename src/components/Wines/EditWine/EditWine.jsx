@@ -160,6 +160,7 @@ export default function EditWine() {
         </button>
         <button
           className='btn btn-secondary'
+          type='button'
           onClick={() => deleteWine(wine.id)}
         >
           Delete

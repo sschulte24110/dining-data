@@ -160,6 +160,7 @@ export default function EditBeer() {
         </button>
         <button
           className='btn btn-secondary'
+          type='button'
           onClick={() => deleteBeer(beer.id)}
         >
           Delete

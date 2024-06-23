@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const errors = useSelector(store => store.errors);
+  const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
   const login = (event) => {
@@ -25,42 +25,50 @@ function LoginForm() {
   }; // end login
 
   return (
-    <form className="formPanel" onSubmit={login}>
+    <div className='container'>
+      <form className='formPanel' onSubmit={login}>
       <h2>Sign In</h2>
-      <h3>Welcome Back!</h3>
-      {errors.loginMessage && (
-        <h3 className="alert" role="alert">
-          {errors.loginMessage}
-        </h3>
-      )}
-      <div>
-        <label htmlFor="username">
-          Username:
+        {errors.loginMessage && (
+          <h3 className='alert' role='alert'>
+            {errors.loginMessage}
+          </h3>
+        )}
+        <div className='col-lg-12'>
+          <div className='mb-3'>
+            <label htmlFor='username'>Username:</label>
+            <input
+              type='text'
+              className='form-control custom-margin'
+              name='username'
+              required
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </div>
+        </div>
+        <div className='col-lg-12'>
+          <div className='mb-3'>
+            <label htmlFor='password'>Password:</label>
+            <input
+              type='password'
+              className='form-control custom-margin'
+              name='password'
+              required
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </div>
+        </div>
+        <div>
           <input
-            type="text"
-            name="username"
-            required
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
+            className='btn btn-outline-secondary'
+            type='submit'
+            name='submit'
+            value='Sign In'
           />
-        </label>
-      </div>
-      <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            required
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
-      </div>
-      <div>
-        <input className="btn" type="submit" name="submit" value="Sign In" />
-      </div>
-    </form>
+        </div>
+      </form>
+    </div>
   );
 }
 

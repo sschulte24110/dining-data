@@ -10,7 +10,6 @@ export default function BeerForm() {
   const vendors = useSelector((store) => store.vendors);
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log(vendors);
 
   let [newBeer, setNewBeer] = useState({
     name: '',

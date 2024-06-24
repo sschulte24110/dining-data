@@ -25,7 +25,7 @@ import VendorForm from '../Vendors/VendorForm/VendorForm';
 import EditVendor from '../Vendors/EditVendor/EditVendor';
 
 import BeerStyle from '../Beers/BeerStyle/BeerStyle';
-import Beers from '../Beers/Beers/Beers';
+import BeersByStyle from '../Beers/BeersByStyle/BeersByStyle';
 import BeerForm from '../Beers/BeerForm/BeerForm';
 import EditBeer from '../Beers/EditBeer/EditBeer';
 
@@ -83,8 +83,8 @@ function App() {
           <ProtectedRoute exact path='/beerstyle'>
             <BeerStyle />
           </ProtectedRoute>
-          <ProtectedRoute exact path='/beers/:id' component={Beers}>
-            <Beers />
+          <ProtectedRoute exact path='/beersbystyle/:id' component={BeersByStyle}>
+            <BeersByStyle />
           </ProtectedRoute>
           <ProtectedRoute exact path='/beerform'>
             <BeerForm />

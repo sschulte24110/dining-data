@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import './Beers.css';
+import './BeersByStyle.css';
 import BeerSearch from '../BeerSearch/BeerSearch';
 
 export default function Beers() {

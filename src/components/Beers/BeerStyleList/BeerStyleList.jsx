@@ -4,7 +4,7 @@ export default function BeerStyleList({ style }) {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(`/beers/${style.id}`);
+    history.push(`/beersbystyle/${style.id}`);
   };
 
   return (

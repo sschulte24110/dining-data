@@ -14,3 +14,39 @@
   text-align: center;
   margin: 10px 0;
 }
+
+.beer-home-icon {
+  background-image: url(../../../images/beer-wall-3.png);
+  text-align: center;
+  color: white;
+  opacity: 50%;
+  border-radius: 10px;
+}
+
+.home-icon-text {
+  padding: 60px;
+}
+
+.wine-home-icon {
+  background-image: url(../../../images/wine-bottles.png);
+  text-align: center;
+  color: white;
+  opacity: 50%;
+  border-radius: 10px;
+}
+
+.vendor-home-icon {
+  background-image: url(../../../images/vendor-image-4.png);
+  text-align: center;
+  color: white;
+  opacity: 50%;
+  border-radius: 10px;
+}
+
+.user-home-icon {
+  background-image: url(../../../images/user-image.png);
+  text-align: center;
+  color: white;
+  opacity: 50%;
+  border-radius: 10px;
+}

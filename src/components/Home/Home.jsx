@@ -15,45 +15,44 @@ export default function Home() {
         alt='Dining Data logo'
       />
       <br />
-      <br />
       <div className='home-icons'>
         <div
-          className='home-icon-button'
+          className='beer-home-icon'
           onClick={() => history.push('/beerstyle')}
         >
-          <img src='../images/icons8-beer-mug-99.png' alt='Beer Mug Icon' />
-          <h2>Beer</h2>
+          {/* <img src='../images/icons8-beer-mug-99.png' alt='Beer Mug Icon' /> */}
+          <h1 className='home-icon-text'>Beer</h1>
         </div>
         <br />
         <div
-          className='home-icon-button'
+          className='wine-home-icon'
           onClick={() => history.push('/winevarietals')}
         >
-          <img
+          {/* <img
             src='../images/icons8-wine-glass-100 (1).png'
             alt='Wine Glass Icon'
-          />
-          <h2>Wine</h2>
+          /> */}
+          <h1 className='home-icon-text'>Wine</h1>
         </div>
         <br />
         <div
-          className='home-icon-button'
+          className='vendor-home-icon'
           onClick={() => history.push('/vendors')}
         >
-          <img
+          {/* <img
             src='../images/icons8-delivery-truck-100.png'
             alt='Delivery Truck Icon'
-          />
-          <h2>Vendors</h2>
+          /> */}
+          <h1 className='home-icon-text'>Vendors</h1>
         </div>
         <br />
         {user.admin_status && (
           <div
-            className='home-icon-button'
+            className='user-home-icon'
             onClick={() => history.push('/user')}
           >
-            <img src='../images/icons8-user-96.png' alt='User Icon' />
-            <h2>Users</h2>
+            {/* <img src='../images/icons8-user-96.png' alt='User Icon' /> */}
+            <h1 className='home-icon-text'>Users</h1>
           </div>
         )}
       </div>

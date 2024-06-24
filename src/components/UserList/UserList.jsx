@@ -2,13 +2,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { toggleAdminRequest } from '../../redux/sagas/user.saga';
+import './UserList.css';
 
-export default function UserList() {
+export default function UserList({ user }) {
   const dispatch = useDispatch();
-  const history = useHistory();
-
-  const users = useSelector((store) => store.users);
-
+  
   useEffect(() => {
     dispatch({ type: 'FETCH_USERS' });
   }, []);
@@ -25,12 +23,10 @@ export default function UserList() {
   };
 
   return (
-    <div>
-      <div>
-        <ul className='users'>
-          {users.map((user) => (
-            <div key={user.id}>
-              <li key={user.id}>{user.name}</li>
+    <>
+          <tr>
+            <td>{user.name}</td>
+            <td className='admin-info'>
               <div className='form-check'>
                 <input
                   className='form-check-input'
@@ -41,17 +37,16 @@ export default function UserList() {
                 />
                 <label className='form-check-label'>Admin</label>
               </div>
+            </td>
+            <td className='admin-info'>
               <button
                 onClick={() => deleteUser(user.id)}
                 className='btn btn-outline-secondary btn-sm'
               >
                 Delete
               </button>
-              <hr />
-            </div>
-          ))}
-        </ul>
-      </div>
-    </div>
+            </td>
+          </tr>
+    </>
   );
 }

@@ -29,14 +29,21 @@ export default function BeerDetails() {
     <div>
       <div className='container'>
         <h1 className='indiv-beer-name'>{beer?.name}</h1>
-        <img src={beer.photo_url} alt='../images/brown-beer-bottle.png' />
+        {/* <img src="../images/brown-beer-bottle.png" alt="" /> */}
+        
+        <img
+          src={beer.photo_url}
+          onError="this.src='../images/brown-beer-bottle.png'"
+          alt='a picture of the beer bottle or can'
+          className='beer-image'
+        />
         <ul>
-          <li>{beer?.brewery}</li>
-          <li>{beer?.beer_style_name}</li>
-          <li>{beer?.abv}</li>
-          <li>{beer?.description}</li>
+          <li>Brewery: {beer?.brewery}</li>
+          <li>Style: {beer?.beer_style_name}</li>
+          <li>ABV: {beer?.abv}</li>
+          <li>Description: {beer?.description}</li>
         </ul>
-        <button 
+        <button
           className='btn btn-outline-secondary'
           onClick={() => {
             history.push(`/editbeer/${beer.id}`);
@@ -44,7 +51,14 @@ export default function BeerDetails() {
         >
           Edit
         </button>
-        <button className='btn btn-outline-secondary' onClick={() => {history.push(`/beers/${beer.beer_style}`)}}>Back</button>
+        <button
+          className='btn btn-outline-secondary'
+          onClick={() => {
+            history.push(`/beers/${beer.beer_style}`);
+          }}
+        >
+          Back
+        </button>
       </div>
     </div>
   );

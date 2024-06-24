@@ -26,23 +26,25 @@ export default function BeerDetails() {
   }
   const beerPhotoUrl = beer.photo_url
     ? beer.photo_url
-    : '/images/brown-beer-bottle.png';
+    : '/images/stock-beer-bottle-dining-data.png';
 
   return (
     <div>
-      <div className='container'>
+      <div className='card'>
         <h1 className='indiv-beer-name'>{beer?.name}</h1>
         <img
           src={beerPhotoUrl}
           alt='a picture of the beer bottle or can'
-          className='beer-image'
+          className='card-image-top'
         />
-        
-          <h4>Brewery: {beer?.brewery}</h4>
-          <h4>Style: {beer?.beer_style_name}</h4>
-          <h4>ABV: {beer?.abv}</h4>
-          <h5>Description: {beer?.description}</h5>
-        
+
+        <ul className='list-group list-group-flush'>
+          <li className='list-group-item'>Brewery: {beer?.brewery}</li>
+          <li className='list-group-item'>Style: {beer?.beer_style_name}</li>
+          <li className='list-group-item'>ABV: {beer?.abv}</li>
+          <li className='list-group-item'>Description: {beer?.description}</li>
+        </ul>
+
         <button
           className='btn btn-outline-secondary'
           onClick={() => {

@@ -28,15 +28,24 @@ export default function BeerDetails() {
   return (
     <div>
       <div className='container'>
-      <h1 className='indiv-beer-name'>{beer?.name}</h1>
-      <img src={beer.photo_url} alt="312 Urban Wheat Ale can" />
-      <ul>
-        <li>{beer?.brewery}</li>
-        <li>{beer?.beer_style_name}</li>
-        <li>{beer?.abv}</li>
-        <li>{beer?.description}</li>
-      </ul>
+        <h1 className='indiv-beer-name'>{beer?.name}</h1>
+        <img src={beer.photo_url} alt='../images/brown-beer-bottle.png' />
+        <ul>
+          <li>{beer?.brewery}</li>
+          <li>{beer?.beer_style_name}</li>
+          <li>{beer?.abv}</li>
+          <li>{beer?.description}</li>
+        </ul>
+        <button 
+          className='btn btn-outline-secondary'
+          onClick={() => {
+            history.push(`/editbeer/${beer.id}`);
+          }}
+        >
+          Edit
+        </button>
+        <button className='btn btn-outline-secondary' onClick={() => {history.push(`/beers/${beer.beer_style}`)}}>Back</button>
       </div>
     </div>
-  )
+  );
 }

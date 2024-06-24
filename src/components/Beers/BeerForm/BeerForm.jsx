@@ -37,72 +37,76 @@ export default function BeerForm() {
     <div className='container'>
       <h1 className='indiv-beer-name'>Add New Beer</h1>
       <form onSubmit={handleSubmit}>
-        <div className='col-12'>
-          <div className='mb-3'>
-            <label htmlFor='beerName'>Name</label>
-            <br />
-            <input
-              type='text'
-              className='form-control custom-margin'
-              placeholder='Name'
-              value={newBeer.name}
-              onChange={(event) =>
-                setNewBeer({ ...newBeer, name: event.target.value })
-              }
-            />
+        <div className='row'>
+          <div className='col-12 col-lg-6'>
+            <div className='mb-3'>
+              <label htmlFor='beerName'>Name</label>
+              <br />
+              <input
+                type='text'
+                className='form-control custom-margin'
+                placeholder='Name'
+                value={newBeer.name}
+                onChange={(event) =>
+                  setNewBeer({ ...newBeer, name: event.target.value })
+                }
+              />
+            </div>
+          </div>
+          <div className='col-12 col-lg-6'>
+            <div className='mb-3'>
+              <label htmlFor='beerBrewery'>Brewery</label>
+              <br />
+              <input
+                type='text'
+                className='form-control custom-margin'
+                placeholder='Brewery'
+                value={newBeer.brewery}
+                onChange={(event) =>
+                  setNewBeer({ ...newBeer, brewery: event.target.value })
+                }
+              />
+            </div>
           </div>
         </div>
-        <div className='col-12'>
-          <div className='mb-3'>
-            <label htmlFor='beerBrewery'>Brewery</label>
-            <br />
-            <input
-              type='text'
-              className='form-control custom-margin'
-              placeholder='Brewery'
-              value={newBeer.brewery}
-              onChange={(event) =>
-                setNewBeer({ ...newBeer, brewery: event.target.value })
-              }
-            />
+        <div className='row'>
+          <div className='col-12 col-lg-6'>
+            <div className='mb-3'>
+              <label htmlFor='beer'>Style</label>
+              <br />
+              <select
+                name='styleSelect'
+                className='form-select'
+                id='style-dropdown'
+                onChange={(event) => {
+                  setNewBeer({ ...newBeer, beer_style: event.target.value });
+                }}
+              >
+                <option>Select Style</option>
+                {styles.map((style, i) => {
+                  return (
+                    <option key={i} value={style.id}>
+                      {style.beer_style}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
           </div>
-        </div>
-        <div className='col-12'>
-          <div className='mb-3'>
-            <label htmlFor='beer'>Style</label>
-            <br />
-            <select
-              name='styleSelect'
-              className='form-select'
-              id='style-dropdown'
-              onChange={(event) => {
-                setNewBeer({ ...newBeer, beer_style: event.target.value });
-              }}
-            >
-              <option>Select Style</option>
-              {styles.map((style, i) => {
-                return (
-                  <option key={i} value={style.id}>
-                    {style.beer_style}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-        </div>
-        <div className='col-12'>
-          <div className='mb-3'>
-            <label htmlFor='beerABV'>ABV</label>
-            <br />
-            <input
-              type='text'
-              className='form-control custom-margin'
-              placeholder='ABV'
-              value={newBeer.abv}
-              onChange={(event) =>
-                setNewBeer({ ...newBeer, abv: event.target.value })
-              }
-            />
+          <div className='col-12 col-lg-6'>
+            <div className='mb-3'>
+              <label htmlFor='beerABV'>ABV</label>
+              <br />
+              <input
+                type='text'
+                className='form-control custom-margin'
+                placeholder='ABV'
+                value={newBeer.abv}
+                onChange={(event) =>
+                  setNewBeer({ ...newBeer, abv: event.target.value })
+                }
+              />
+            </div>
           </div>
         </div>
         <div className='col-12'>

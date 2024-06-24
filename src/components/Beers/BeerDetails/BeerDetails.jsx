@@ -54,7 +54,7 @@ export default function BeerDetails() {
         <button
           className='btn btn-outline-secondary'
           onClick={() => {
-            history.push(`/beers/${beer.beer_style}`);
+            history.push(`/beersbystyle/${beer.beer_style}`);
           }}
         >
           Back

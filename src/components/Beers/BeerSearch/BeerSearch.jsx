@@ -17,11 +17,11 @@ export default function BeerSearch() {
           id='free-solo-2-demo'
           disableClearable
           options={beers}
-          getOptionLabel={(option) => option.name}
+          getOptionLabel={(option) => `${option.name}: ${option.brewery}`}
           renderInput={(params) => (
             <TextField
               {...params}
-              label='Search beer by name'
+              label='Search beer by name or brewery'
               id='outlined-size-small'
               size='small'
               InputProps={{

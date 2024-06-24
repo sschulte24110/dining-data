@@ -37,7 +37,7 @@ export default function BeerForm() {
     <div className='container'>
       <h1 className='indiv-beer-name'>Add New Beer</h1>
       <form onSubmit={handleSubmit}>
-        <div className='col-lg-12'>
+        <div className='col-12'>
           <div className='mb-3'>
             <label htmlFor='beerName'>Name</label>
             <br />
@@ -52,7 +52,7 @@ export default function BeerForm() {
             />
           </div>
         </div>
-        <div className='col-lg-12'>
+        <div className='col-12'>
           <div className='mb-3'>
             <label htmlFor='beerBrewery'>Brewery</label>
             <br />
@@ -67,7 +67,7 @@ export default function BeerForm() {
             />
           </div>
         </div>
-        <div className='col-lg-12'>
+        <div className='col-12'>
           <div className='mb-3'>
             <label htmlFor='beer'>Style</label>
             <br />
@@ -90,7 +90,7 @@ export default function BeerForm() {
             </select>
           </div>
         </div>
-        <div className='col-lg-12'>
+        <div className='col-12'>
           <div className='mb-3'>
             <label htmlFor='beerABV'>ABV</label>
             <br />
@@ -105,7 +105,7 @@ export default function BeerForm() {
             />
           </div>
         </div>
-        <div className='col-lg-12'>
+        <div className='col-12'>
           <div className='mb-3'>
             <label htmlFor='beerDescription'>Description</label>
             <br />
@@ -120,7 +120,7 @@ export default function BeerForm() {
             />
           </div>
         </div>
-        <div className='col-lg-12'>
+        <div className='col-12'>
           <div className='mb-3'>
             <label htmlFor='beerVendor'>Vendor</label>
             <br />

@@ -31,7 +31,7 @@ export default function Beers() {
           <div
             key={beer.id}
             onClick={() => {
-              history.push(`/editbeer/${beer.id}`);
+              history.push(`/beerdetails/${beer.id}`);
             }}
           >
             <li>

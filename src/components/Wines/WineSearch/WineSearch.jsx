@@ -17,11 +17,11 @@ export default function WineSearch() {
           id='free-solo-2-demo'
           disableClearable
           options={wines}
-          getOptionLabel={(option) => option.name_winery}
+          getOptionLabel={(option) => `${option.name_winery}: ${option.region}`}
           renderInput={(params) => (
             <TextField
               {...params}
-              label='Search wine by name'
+              label='Search wine by name, winery, region'
               id='outlined-size-small'
               size='small'
               InputProps={{

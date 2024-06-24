@@ -24,16 +24,16 @@ export default function BeerDetails() {
   if (!beer) {
     return <div>Loading...</div>;
   }
+  const beerPhotoUrl = beer.photo_url
+    ? beer.photo_url
+    : '/images/brown-beer-bottle.png';
 
   return (
     <div>
       <div className='container'>
         <h1 className='indiv-beer-name'>{beer?.name}</h1>
-        {/* <img src="../images/brown-beer-bottle.png" alt="" /> */}
-        
         <img
-          src={beer.photo_url}
-          onError="this.src='../images/brown-beer-bottle.png'"
+          src={beerPhotoUrl}
           alt='a picture of the beer bottle or can'
           className='beer-image'
         />

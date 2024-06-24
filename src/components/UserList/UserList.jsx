@@ -14,12 +14,15 @@ export default function UserList() {
   }, []);
 
   const deleteUser = (userID) => {
-    dispatch({ type: 'DELETE_USER', payload: userID });
+    if (window.confirm('Are you sure you want to delete this user?')) {
+      dispatch({ type: 'DELETE_USER', payload: userID });
+      deleteUser(userID);
+    }
   };
 
   const toggleAdmin = (userID, isAdmin) => {
     dispatch(toggleAdminRequest(userID, isAdmin));
-  }
+  };
 
   return (
     <div>
@@ -36,9 +39,7 @@ export default function UserList() {
                   onChange={(e) => toggleAdmin(user.id, e.target.checked)}
                   id={'adminCheck${user.id'}
                 />
-                <label className='form-check-label'>
-                  Admin
-                </label>
+                <label className='form-check-label'>Admin</label>
               </div>
               <button
                 onClick={() => deleteUser(user.id)}

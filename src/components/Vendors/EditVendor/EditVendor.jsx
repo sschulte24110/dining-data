@@ -18,8 +18,8 @@ export default function EditVendor() {
   useEffect(() => {
     const foundVendor = vendors.find((v) => Number(v.id) === parseInt(id));
     setVendor(foundVendor);
-  }, [id, vendors])
-  
+  }, [id, vendors]);
+
   // if(!vendor) {
   //   return <div>Loading...</div>;
   // }
@@ -31,10 +31,12 @@ export default function EditVendor() {
   };
 
   const deleteVendor = (vendorID) => {
-    dispatch({ type: 'DELETE_VENDOR', payload: vendorID})
-    history.push('/vendors');
+    if (window.confirm('Are you sure you want to delete this vendor?')) {
+      dispatch({ type: 'DELETE_VENDOR', payload: vendorID });
+      history.push('/vendors');
+    }
   };
-  
+
   return (
     <div className='container'>
       <h1 className='indiv-vendor-name'>{vendor?.vendor_name}</h1>
@@ -133,7 +135,7 @@ export default function EditVendor() {
         <div className='col-lg-12'>
           <div className='mb-3'>
             <label className='form-label' htmlFor='state'>
-             State
+              State
             </label>
             <input
               type='text'
@@ -184,11 +186,29 @@ export default function EditVendor() {
             />
           </div>
         </div>
-        <button className='btn btn-secondary' type='submit' value='Update Vendor'>Save</button>
-        <button className='btn btn-secondary' type='button' onClick={() => history.push('/vendors')} >Cancel</button>
-      <button className='btn btn-secondary' type='button' onClick={() => deleteVendor(vendor.id)}>Delete</button>
+        <button
+          className='btn btn-secondary'
+          type='submit'
+          value='Update Vendor'
+        >
+          Save
+        </button>
+        <button
+          className='btn btn-secondary'
+          type='button'
+          onClick={() => history.push('/vendors')}
+        >
+          Cancel
+        </button>
+        <button
+          className='btn btn-secondary'
+          type='button'
+          onClick={() => deleteVendor(vendor.id)}
+        >
+          Delete
+        </button>
       </form>
       <br />
     </div>
-  )
+  );
 }

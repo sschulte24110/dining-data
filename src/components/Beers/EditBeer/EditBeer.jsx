@@ -32,8 +32,10 @@ export default function EditBeer() {
   };
 
   const deleteBeer = (beerID) => {
-    dispatch({ type: 'DELETE_BEER', payload: beerID });
-    history.push('/beerstyle');
+    if (window.confirm('Are you sure you want to delete this beer?')) {
+      dispatch({ type: 'DELETE_BEER', payload: beerID });
+      history.push('/beerstyle');
+    }
   };
 
   return (
@@ -77,7 +79,7 @@ export default function EditBeer() {
             <label htmlFor='beer'>Style</label>
             <br />
             <select
-            className='form-select'
+              className='form-select'
               name='styleSelect'
               id='style-dropdown'
               onChange={(event) => {
@@ -130,7 +132,7 @@ export default function EditBeer() {
             <label htmlFor='beerVendor'>Vendor</label>
             <br />
             <select
-            className='form-select'
+              className='form-select'
               name='vendorSelect'
               id='style-dropdown'
               onChange={(event) => {

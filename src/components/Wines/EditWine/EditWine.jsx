@@ -32,8 +32,10 @@ export default function EditWine() {
   };
 
   const deleteWine = (wineID) => {
-    dispatch({ type: 'DELETE_WINE', payload: wineID });
-    history.push('/winevarietals');
+    if (window.confirm('Are you sure you want to delete this wine?')) {
+      dispatch({ type: 'DELETE_WINE', payload: wineID });
+      history.push('/winevarietals');
+    }
   };
 
   return (

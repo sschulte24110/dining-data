@@ -11,7 +11,7 @@ export default function VendorSearch() {
 
   return (
     <div className='search-form'>
-      <Stack spacing={3} sx={{ width: 400 }}>
+      <Stack spacing={3} sx={{ width: '100%' }}>
         <Autocomplete
           freeSolo
           id='free-solo-2-demo'

@@ -11,7 +11,7 @@ export default function Home() {
     <div className='container'>
       <img
         className='home-logo'
-        src='../images/dining-data-vert.png'
+        src='../images/dining-data-vert-2.png'
         alt='Dining Data logo'
       />
       <br />

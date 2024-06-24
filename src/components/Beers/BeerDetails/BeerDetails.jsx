@@ -37,12 +37,12 @@ export default function BeerDetails() {
           alt='a picture of the beer bottle or can'
           className='beer-image'
         />
-        <ul>
-          <li>Brewery: {beer?.brewery}</li>
-          <li>Style: {beer?.beer_style_name}</li>
-          <li>ABV: {beer?.abv}</li>
-          <li>Description: {beer?.description}</li>
-        </ul>
+        
+          <h4>Brewery: {beer?.brewery}</h4>
+          <h4>Style: {beer?.beer_style_name}</h4>
+          <h4>ABV: {beer?.abv}</h4>
+          <h5>Description: {beer?.description}</h5>
+        
         <button
           className='btn btn-outline-secondary'
           onClick={() => {

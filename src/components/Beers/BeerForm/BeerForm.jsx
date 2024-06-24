@@ -72,6 +72,38 @@ export default function BeerForm() {
         <div className='row'>
           <div className='col-12 col-lg-6'>
             <div className='mb-3'>
+              <label htmlFor='beerABV'>ABV</label>
+              <br />
+              <input
+                type='text'
+                className='form-control custom-margin'
+                placeholder='ABV'
+                value={newBeer.abv}
+                onChange={(event) =>
+                  setNewBeer({ ...newBeer, abv: event.target.value })
+                }
+              />
+            </div>
+          </div>
+          <div className='col-12 col-lg-6'>
+            <div className='mb-3'>
+              <label htmlFor='beerURL'>Photo URL</label>
+              <br />
+              <input
+                type='text'
+                className='form-control custom-margin'
+                placeholder='Photo URL'
+                value={newBeer.photo_url}
+                onChange={(event) =>
+                  setNewBeer({ ...newBeer, photo_url: event.target.value })
+                }
+              />
+            </div>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-12 col-lg-6'>
+            <div className='mb-3'>
               <label htmlFor='beer'>Style</label>
               <br />
               <select
@@ -95,17 +127,25 @@ export default function BeerForm() {
           </div>
           <div className='col-12 col-lg-6'>
             <div className='mb-3'>
-              <label htmlFor='beerABV'>ABV</label>
+              <label htmlFor='beerVendor'>Vendor</label>
               <br />
-              <input
-                type='text'
-                className='form-control custom-margin'
-                placeholder='ABV'
-                value={newBeer.abv}
-                onChange={(event) =>
-                  setNewBeer({ ...newBeer, abv: event.target.value })
-                }
-              />
+              <select
+                name='vendorSelect'
+                className='form-select'
+                id='vendor-dropdown'
+                onChange={(event) => {
+                  setNewBeer({ ...newBeer, vendor_id: event.target.value });
+                }}
+              >
+                <option>Select Vendor</option>
+                {vendors.map((vendor, i) => {
+                  return (
+                    <option key={i} value={vendor.id}>
+                      {vendor.vendor_name}
+                    </option>
+                  );
+                })}
+              </select>
             </div>
           </div>
         </div>
@@ -124,29 +164,7 @@ export default function BeerForm() {
             />
           </div>
         </div>
-        <div className='col-12'>
-          <div className='mb-3'>
-            <label htmlFor='beerVendor'>Vendor</label>
-            <br />
-            <select
-              name='vendorSelect'
-              className='form-select'
-              id='vendor-dropdown'
-              onChange={(event) => {
-                setNewBeer({ ...newBeer, vendor_id: event.target.value });
-              }}
-            >
-              <option>Select Vendor</option>
-              {vendors.map((vendor, i) => {
-                return (
-                  <option key={i} value={vendor.id}>
-                    {vendor.vendor_name}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-        </div>
+
         <button
           className='btn btn-secondary'
           type='submit'

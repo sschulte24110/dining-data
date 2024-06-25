@@ -32,7 +32,7 @@ export default function VendorSearch() {
           )}
           onChange={(event, value) => {
             if (value) {
-              history.push(`/editvendor/${value.id}`);
+              history.push(`/vendordetails/${value.id}`);
             }
           }}
         />

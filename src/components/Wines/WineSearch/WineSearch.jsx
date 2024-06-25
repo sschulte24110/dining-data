@@ -32,7 +32,7 @@ export default function WineSearch() {
           )}
           onChange={(event, value) => {
             if (value) {
-              history.push(`/winesbyvarietal/editwine/${value.id}`);
+              history.push(`/winesbyvarietal/winedetails/${value.id}`);
             }
           }}
         />

@@ -32,7 +32,7 @@ export default function BeerSearch() {
           )}
           onChange={(event, value) => {
             if (value) {
-              history.push(`/editbeer/${value.id}`);
+              history.push(`/beerdetails/${value.id}`);
             }
           }}
         />

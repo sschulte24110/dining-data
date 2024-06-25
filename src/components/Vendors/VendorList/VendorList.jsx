@@ -8,7 +8,7 @@ export default function VendorList({vendor}) {
   
 
   const handleClick = () => {
-    history.push(`/editvendor/${vendor.id}`)
+    history.push(`/vendordetails/${vendor.id}`)
   }
 
   return (

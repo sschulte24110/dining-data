@@ -70,7 +70,7 @@ export default function BeerForm() {
           </div>
         </div>
         <div className='row'>
-          <div className='col-12 col-lg-6'>
+          <div className='col-12 col-lg-2'>
             <div className='mb-3'>
               <label htmlFor='beerABV'>ABV</label>
               <br />
@@ -85,24 +85,7 @@ export default function BeerForm() {
               />
             </div>
           </div>
-          <div className='col-12 col-lg-6'>
-            <div className='mb-3'>
-              <label htmlFor='beerURL'>Photo URL</label>
-              <br />
-              <input
-                type='text'
-                className='form-control custom-margin'
-                placeholder='Photo URL'
-                value={newBeer.photo_url}
-                onChange={(event) =>
-                  setNewBeer({ ...newBeer, photo_url: event.target.value })
-                }
-              />
-            </div>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col-12 col-lg-6'>
+          <div className='col-12 col-lg-5'>
             <div className='mb-3'>
               <label htmlFor='beer'>Style</label>
               <br />
@@ -125,7 +108,7 @@ export default function BeerForm() {
               </select>
             </div>
           </div>
-          <div className='col-12 col-lg-6'>
+          <div className='col-12 col-lg-5'>
             <div className='mb-3'>
               <label htmlFor='beerVendor'>Vendor</label>
               <br />
@@ -149,19 +132,38 @@ export default function BeerForm() {
             </div>
           </div>
         </div>
-        <div className='col-12'>
-          <div className='mb-3'>
-            <label htmlFor='beerDescription'>Description</label>
-            <br />
-            <textarea
-              type='text'
-              className='form-control custom-margin'
-              placeholder='Description'
-              value={newBeer.description}
-              onChange={(event) =>
-                setNewBeer({ ...newBeer, description: event.target.value })
-              }
-            />
+        <div className='row'>
+          <div className='col-12 col-lg-12'>
+            <div className='mb-3'>
+              <label htmlFor='beerDescription'>Description</label>
+              <br />
+              <textarea
+                type='text'
+                className='form-control custom-margin'
+                placeholder='Description'
+                value={newBeer.description}
+                onChange={(event) =>
+                  setNewBeer({ ...newBeer, description: event.target.value })
+                }
+              />
+            </div>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-12 col-lg-12'>
+            <div className='mb-3'>
+              <label htmlFor='beerURL'>Photo URL</label>
+              <br />
+              <input
+                type='text'
+                className='form-control custom-margin'
+                placeholder='Photo URL'
+                value={newBeer.photo_url}
+                onChange={(event) =>
+                  setNewBeer({ ...newBeer, photo_url: event.target.value })
+                }
+              />
+            </div>
           </div>
         </div>
 

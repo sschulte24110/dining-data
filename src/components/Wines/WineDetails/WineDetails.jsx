@@ -44,6 +44,7 @@ export default function WineDetails() {
           <li className='list-group-item'></li>
         </ul>
         <button
+        id='details-button'
           className='btn btn-outline-secondary'
           onClick={() => {
             history.push(`/winesbyvarietal/editwine/${wine.id}`);
@@ -52,6 +53,7 @@ export default function WineDetails() {
           Edit
         </button>
         <button
+          id='details-button'
           className='btn btn-outline-secondary'
           onClick={() => {
             history.push(`/winesbyvarietal/${wine.wine_varietal_id}`);

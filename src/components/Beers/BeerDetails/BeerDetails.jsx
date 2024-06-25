@@ -46,6 +46,7 @@ export default function BeerDetails() {
         </ul>
 
         <button
+          id='details-button'
           className='btn btn-outline-secondary'
           onClick={() => {
             history.push(`/editbeer/${beer.id}`);
@@ -54,6 +55,7 @@ export default function BeerDetails() {
           Edit
         </button>
         <button
+          id='details-button'
           className='btn btn-outline-secondary'
           onClick={() => {
             history.push(`/beersbystyle/${beer.beer_style}`);

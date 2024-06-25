@@ -34,6 +34,7 @@ export default function VendorDetails() {
           <li className="list-group-item">Zip Code: {vendor?.zip_code}</li>
         </ul>
         <button
+          id='details-button'
           className='btn btn-outline-secondary'
           onClick={() => {
             history.push(`/editvendor/${vendor.id}`);
@@ -42,6 +43,7 @@ export default function VendorDetails() {
           Edit
         </button>
         <button
+        id='details-button'
           className='btn btn-outline-secondary'
           onClick={() => {
             history.push(`/vendors`);

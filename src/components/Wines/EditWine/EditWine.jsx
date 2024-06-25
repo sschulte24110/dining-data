@@ -180,7 +180,7 @@ export default function EditWine() {
         <button
           className='btn btn-secondary'
           type='button'
-          onClick={() => history.push('/winevarietals')}
+          onClick={() => history.push(`/winesbyvarietal/winedetails/${wine?.id}`)}
         >
           Cancel
         </button>

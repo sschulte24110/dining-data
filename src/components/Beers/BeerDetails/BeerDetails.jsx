@@ -29,9 +29,26 @@ export default function BeerDetails() {
     : '/images/stock-beer-bottle-dining-data.png';
 
   return (
-    <div>
+    <div className='container'>
       <div className='card'>
-        <h1 className='indiv-beer-name'>{beer?.name}</h1>
+        <div className='details-header'>
+          <h6
+            onClick={() => {
+              history.push(`/beersbystyle/${beer.beer_style}`);
+            }}
+            className='home-button'
+          >
+            Back
+          </h6>
+          <h1 className='indiv-item-name'>{beer?.name}</h1>
+          <h6
+            onClick={() => {
+              history.push(`/editbeer/${beer.id}`);
+            }}
+          >
+            Edit
+          </h6>
+        </div>
         <img
           src={beerPhotoUrl}
           alt='a picture of the beer bottle or can'
@@ -39,6 +56,7 @@ export default function BeerDetails() {
         />
 
         <ul className='list-group list-group-flush'>
+          <li className='list-group-item'>Name: {beer?.name}</li>
           <li className='list-group-item'>Brewery: {beer?.brewery}</li>
           <li className='list-group-item'>Style: {beer?.beer_style_name}</li>
           <li className='list-group-item'>ABV: {beer?.abv}</li>

@@ -28,9 +28,27 @@ export default function WineDetails() {
     : '/images/wine-bottle-dining-data.png';
 
   return (
-    <div>
+    <div className='container'>
       <div className='card'>
-        <h1 className='indiv-wine-name'>{wine?.name_winery}</h1>
+        <div className='details-header'>
+          <h6
+            onClick={() => {
+              history.push(`/winesbyvarietal/${wine.wine_varietal_id}`);
+            }}
+            className='home-button'
+          >
+            Back
+          </h6>
+          <h1 className='indiv-item-name'>{wine?.name_winery}</h1>
+          <h6
+            onClick={() => {
+              history.push(`/winesbyvarietal/editwine/${wine.id}`);
+            }}
+          >
+            Edit
+          </h6>
+        </div>
+
         <img
           src={winePhotoUrl}
           alt='a picture of a bottle of wine'
@@ -38,13 +56,15 @@ export default function WineDetails() {
         />
         <ul className='list-group list-group-flush'>
           <li className='list-group-item'>Region: {wine?.region}</li>
-          <li className='list-group-item'>Varietal: {wine?.wine_varietal_name}</li>
+          <li className='list-group-item'>
+            Varietal: {wine?.wine_varietal_name}
+          </li>
           <li className='list-group-item'>Year: {wine?.year}</li>
           <li className='list-group-item'>Description: {wine?.description}</li>
           <li className='list-group-item'></li>
         </ul>
         <button
-        id='details-button'
+          id='details-button'
           className='btn btn-outline-secondary'
           onClick={() => {
             history.push(`/winesbyvarietal/editwine/${wine.id}`);

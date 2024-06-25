@@ -1,7 +1,25 @@
 .card-image-top {
   width: 100%;
+  height: 40vh;
+  object-fit: contain;
 }
-
 #details-button {
   margin: 10px;
+}
+.indiv-item-name {
+  text-align: center;
+}
+
+.card {
+  border: 0;
+}
+
+.details-header {
+  display: flex;
+  height: 50px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-content: center;
+  margin-top: 15px;
 }

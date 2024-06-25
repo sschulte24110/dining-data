@@ -181,7 +181,7 @@ export default function EditBeer() {
         <button
           className='btn btn-secondary'
           type='button'
-          onClick={() => history.push('/beerstyle')}
+          onClick={() => history.push(`/beerdetails/${beer.id}`)}
         >
           Cancel
         </button>

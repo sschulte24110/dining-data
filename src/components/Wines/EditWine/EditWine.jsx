@@ -42,74 +42,104 @@ export default function EditWine() {
     <div className='container'>
       <h1 className='indiv-wine-name'>{wine?.name_winery}</h1>
       <form onSubmit={handleSubmit}>
-        <div className='col-lg-12'>
-          <div className='mb-3'>
-            <label className='form-label' htmlFor='wineNameWinery'>
-              Name and Winery
-            </label>
-            <br />
-            <input
-              type='text'
-              className='form-control custom-margin'
-              placeholder={wine?.name_winery}
-              value={wine?.name_winery}
-              onChange={(event) =>
-                setWine({ ...wine, name: event.target.value })
-              }
-            />
+        <div className='row'>
+          <div className='col-12 col-lg-12'>
+            <div className='mb-3'>
+              <label className='form-label' htmlFor='wineNameWinery'>
+                Name and Winery
+              </label>
+              <br />
+              <input
+                type='text'
+                className='form-control custom-margin'
+                placeholder={wine?.name_winery}
+                value={wine?.name_winery}
+                onChange={(event) =>
+                  setWine({ ...wine, name: event.target.value })
+                }
+              />
+            </div>
           </div>
         </div>
-        <div className='col-lg-12'>
-          <div className='mb-3'>
-            <label htmlFor='beer'>Varietal</label>
-            <br />
-            <select
-              name='varietalSelect'
-              className='form-select'
-              id='varietal-dropdown'
-              onChange={(event) => {
-                setWine({ ...wine, wine_varietal_id: event.target.value });
-              }}
-            >
-              <option>Select Varietal</option>
-              {varietals.map((varietal, i) => {
-                return (
-                  <option key={i} value={varietal.id}>
-                    {varietal.wine_varietal}
-                  </option>
-                );
-              })}
-            </select>
+        <div className='row'>
+          <div className='col-12 col-lg-6'>
+            <div className='mb-3'>
+              <label htmlFor='wineRegion'>Region</label>
+              <br />
+              <input
+                type='text'
+                className='form-control custom-margin'
+                placeholder={wine?.region}
+                value={wine?.region}
+                onChange={(event) =>
+                  setWine({ ...wine, region: event.target.value })
+                }
+              />
+            </div>
+          </div>
+          <div className='col-12 col-lg-6'>
+            <div className='mb-3'>
+              <label htmlFor='beer'>Varietal</label>
+              <br />
+              <select
+                name='varietalSelect'
+                className='form-select'
+                id='varietal-dropdown'
+                onChange={(event) => {
+                  setWine({ ...wine, wine_varietal_id: event.target.value });
+                }}
+              >
+                <option>Select Varietal</option>
+                {varietals.map((varietal, i) => {
+                  return (
+                    <option key={i} value={varietal.id}>
+                      {varietal.wine_varietal}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
           </div>
         </div>
-        <div className='col-lg-12'>
-          <div className='mb-3'>
-            <label htmlFor='wineRegion'>Region</label>
-            <br />
-            <input
-              type='text'
-              className='form-control custom-margin'
-              placeholder={wine?.region}
-              value={wine?.region}
-              onChange={(event) =>
-                setWine({ ...wine, region: event.target.value })
-              }
-            />
+        <div className='row'>
+          <div className='col-12 col-lg-6'>
+            <div className='mb-3'>
+              <label htmlFor='wineYear'>Year</label>
+              <br />
+              <input
+                type='text'
+                className='form-control custom-margin'
+                placeholder={wine?.year}
+                value={wine?.year}
+                onChange={(event) =>
+                  setWine({ ...wine, year: event.target.value })
+                }
+              />
+            </div>
           </div>
-        </div>
-        <div className='col-lg-12'>
-          <div className='mb-3'>
-            <label htmlFor='wineYear'>Year</label>
-            <br />
-            <input
-              type='text'
-              className='form-control custom-margin'
-              placeholder={wine?.year}
-              value={wine?.year}
-              onChange={(event) =>
-                setWine({ ...wine, year: event.target.value })
-              }
-            />
+
+          <div className='col-12 col-lg-6'>
+            <div className='mb-3'>
+              <label htmlFor='wineVendor'>Vendor</label>
+              <br />
+              <select
+                name='vendorSelect'
+                className='form-select'
+                id='style-dropdown'
+                onChange={(event) => {
+                  setWine({ ...wine, vendor_id: event.target.value });
+                }}
+              >
+                <option>Select Vendor</option>
+                {vendors.map((vendor, i) => {
+                  return (
+                    <option key={i} value={vendor.id}>
+                      {vendor.vendor_name}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
           </div>
         </div>
         <div className='col-lg-12'>
@@ -127,27 +157,21 @@ export default function EditWine() {
             />
           </div>
         </div>
-        <div className='col-lg-12'>
-          <div className='mb-3'>
-            <label htmlFor='wineVendor'>Vendor</label>
-            <br />
-            <select
-              name='vendorSelect'
-              className='form-select'
-              id='style-dropdown'
-              onChange={(event) => {
-                setWine({ ...wine, vendor_id: event.target.value });
-              }}
-            >
-              <option>Select Vendor</option>
-              {vendors.map((vendor, i) => {
-                return (
-                  <option key={i} value={vendor.id}>
-                    {vendor.vendor_name}
-                  </option>
-                );
-              })}
-            </select>
+        <div className='row'>
+          <div className='col-12 col-lg-12'>
+            <div className='mb-3'>
+              <label htmlFor='wineURL'>Photo URL</label>
+              <br />
+              <input
+                type='text'
+                className='form-control custom-margin'
+                placeholder='Photo URL'
+                value={wine.photo_url}
+                onChange={(event) =>
+                  setNewWine({ ...wine, photo_url: event.target.value })
+                }
+              />
+            </div>
           </div>
         </div>
         <button className='btn btn-secondary' type='submit' value='Update Wine'>

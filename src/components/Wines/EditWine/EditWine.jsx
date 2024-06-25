@@ -2,11 +2,14 @@ import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import './EditWine.css';
 
 export default function EditWine() {
   const { id } = useParams();
   const [wine, setWine] = useState(null);
+  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -31,11 +34,12 @@ export default function EditWine() {
     history.push('/winevarietals');
   };
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const deleteWine = (wineID) => {
-    if (window.confirm('Are you sure you want to delete this wine?')) {
-      dispatch({ type: 'DELETE_WINE', payload: wineID });
-      history.push('/winevarietals');
-    }
+    dispatch({ type: 'DELETE_WINE', payload: wineID });
+    history.push('/winevarietals');
   };
 
   return (
@@ -180,17 +184,36 @@ export default function EditWine() {
         <button
           className='btn btn-secondary'
           type='button'
-          onClick={() => history.push(`/winesbyvarietal/winedetails/${wine?.id}`)}
+          onClick={() =>
+            history.push(`/winesbyvarietal/winedetails/${wine?.id}`)
+          }
         >
           Cancel
         </button>
-        <button
-          className='btn btn-secondary'
-          type='button'
-          onClick={() => deleteWine(wine.id)}
-        >
+        <Button variant='secondary' onClick={handleShow}>
           Delete
-        </button>
+        </Button>
+        <div>
+          <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop='static'
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Delete Wine?</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Are you sure you want to delete this wine?</Modal.Body>
+            <Modal.Footer>
+              <Button variant='secondary' onClick={handleClose}>
+                Close
+              </Button>
+              <Button onClick={() => deleteWine(wine.id)} variant='primary'>
+                Yes, Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
       </form>
     </div>
   );

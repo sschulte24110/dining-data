@@ -15,7 +15,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 router.get('/users/', rejectUnauthenticated, (req, res) => {
-  let queryText = `SELECT * FROM "user" WHERE deleted = false ORDER BY id;`;
+  let queryText = `SELECT * FROM "user" WHERE deleted = false ORDER BY name;`;
   pool
     .query(queryText)
     .then((result) => {

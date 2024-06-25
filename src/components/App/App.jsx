@@ -36,6 +36,7 @@ import WineForm from '../Wines/WineForm/WineForm';
 import EditWine from '../Wines/EditWine/EditWine';
 import './App.css';
 import VendorDetails from '../Vendors/VendorDetails/VendorDetails';
+import WineDetails from '../Wines/WineDetails/WineDetails';
 
 function App() {
   const dispatch = useDispatch();
@@ -106,6 +107,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute exact path='/wineform'>
             <WineForm />
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/winesbyvarietal/winedetails/:id' component={WineDetails}>
+            <WineDetails />
           </ProtectedRoute>
           <ProtectedRoute exact path='/winesbyvarietal/editwine/:id' component={EditWine}>
             <EditWine />

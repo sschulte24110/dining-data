@@ -32,7 +32,7 @@ export default function WinesByVarietal() {
       <WineSearch />
       <ul className="specific-wine-list">
         {wines.map((wine, i) => (
-          <div key={wine.id} onClick={() => {history.push(`editwine/${wine.id}`)}}>
+          <div key={wine.id} onClick={() => {history.push(`winedetails/${wine.id}`)}}>
             <li>
               <div className="wineName">{wine.name_winery}</div>
             </li>

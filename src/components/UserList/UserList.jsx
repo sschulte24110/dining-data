@@ -14,7 +14,7 @@ export default function UserList({ user }) {
   const deleteUser = (userID) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       dispatch({ type: 'DELETE_USER', payload: userID });
-      deleteUser(userID);
+      // deleteUser(userID);
     }
   };
 

@@ -30,7 +30,7 @@ function UserPage() {
         </div>
         <div className='user-info'>
           <h3>Welcome, {user.name}!</h3>
-          <p>Your ID is: {user.id}</p>
+          
         </div>
       </div>
       <div>

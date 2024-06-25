@@ -1,3 +1,9 @@
 .specific-wine-list {
   list-style-type: none;
 }
+
+.indiv-wine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

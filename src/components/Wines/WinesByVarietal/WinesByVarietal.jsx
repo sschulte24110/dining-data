@@ -15,7 +15,6 @@ export default function WinesByVarietal() {
   useEffect(() => {
     dispatch({ type: 'FETCH_VARIETAL_WINE', payload: params.id });
   }, []);
-  
 
   return (
     <div className='container'>
@@ -30,12 +29,26 @@ export default function WinesByVarietal() {
         <h6 onClick={() => history.push('/wineform')}>Add</h6>
       </div>
       <WineSearch />
-      <ul className="specific-wine-list">
+      <ul className='specific-wine-list'>
         {wines.map((wine, i) => (
-          <div key={wine.id} onClick={() => {history.push(`winedetails/${wine.id}`)}}>
-            <li>
-              <div className="wineName">{wine.name_winery}</div>
-            </li>
+          <div key={wine.id}>
+            <div className='indiv-wine'>
+              <li
+                onClick={() => {
+                  history.push(`winedetails/${wine.id}`);
+                }}
+              >
+                <div className='wineName'>{wine.name_winery}</div>
+              </li>
+              <button
+                className='btn btn-outline-secondary'
+                onClick={() => {
+                  history.push(`/winesbyvarietal/editwine/${wine.id}`);
+                }}
+              >
+                Edit
+              </button>
+            </div>
             <hr />
           </div>
         ))}

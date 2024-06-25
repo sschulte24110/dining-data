@@ -28,16 +28,25 @@ export default function Beers() {
       <BeerSearch />
       <ul className='specific-beer-list'>
         {beers.map((beer, i) => (
-          <div
-            key={beer.id}
-            onClick={() => {
-              history.push(`/beerdetails/${beer.id}`);
-            }}
-          >
-            <li>
-              <div className='beerName'>{beer.name}</div>
-              <div className='beerBrewery'>{beer.brewery}</div>
-            </li>
+          <div key={beer.id}>
+            <div className='indiv-beer'>
+              <li
+                onClick={() => {
+                  history.push(`/beerdetails/${beer.id}`);
+                }}
+              >
+                <div className='beerName'>{beer.name}</div>
+                <div className='beerBrewery'>{beer.brewery}</div>
+              </li>
+              <button
+                className='btn btn-outline-secondary'
+                onClick={() => {
+                  history.push(`/editbeer/${beer.id}`);
+                }}
+              >
+                Edit
+              </button>
+            </div>
             <hr />
           </div>
         ))}

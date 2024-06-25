@@ -6,3 +6,8 @@
 .specific-beer-list {
   list-style-type: none;
 }
+
+.indiv-beer {
+  display: flex;
+  justify-content: space-between;
+}

@@ -6,7 +6,7 @@ import {
   faHome,
   faBeer,
   faWineGlassAlt,
-  faStoreAlt,
+  faTruck,
   faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import './Nav.css';
@@ -55,7 +55,7 @@ function Nav() {
             </li>
             <li className='nav-item'>
               <Link className='nav-link' to='/vendors'>
-                <FontAwesomeIcon icon={faStoreAlt} /> Vendors
+                <FontAwesomeIcon icon={faTruck} /> Vendors
               </Link>
             </li>
             <li className='nav-item'>

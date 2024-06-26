@@ -209,7 +209,7 @@ export default function EditWine() {
                 Close
               </Button>
               <Button onClick={() => deleteWine(wine.id)} variant='primary'>
-                Yes, Delete
+                Delete
               </Button>
             </Modal.Footer>
           </Modal>

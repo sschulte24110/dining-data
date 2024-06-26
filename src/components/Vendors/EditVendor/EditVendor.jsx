@@ -229,7 +229,7 @@ export default function EditVendor() {
                 Close
               </Button>
               <Button onClick={() => deleteVendor(vendor.id)} variant='primary'>
-                Yes, Delete
+                Delete
               </Button>
             </Modal.Footer>
           </Modal>

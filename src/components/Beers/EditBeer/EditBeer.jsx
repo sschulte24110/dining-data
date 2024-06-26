@@ -208,7 +208,7 @@ export default function EditBeer() {
                 Close
               </Button>
               <Button onClick={() => deleteBeer(beer.id)} variant='primary'>
-                Yes, Delete
+                Delete
               </Button>
             </Modal.Footer>
           </Modal>

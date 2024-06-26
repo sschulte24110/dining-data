@@ -64,7 +64,7 @@ export default function UserList({ user }) {
               Close
             </Button>
             <Button onClick={() => deleteUser(user.id)} variant='primary'>
-              Yes, Delete
+              Delete
             </Button>
           </Modal.Footer>
         </Modal>

@@ -177,6 +177,23 @@ export default function EditBeer() {
               />
             </div>
           </div>
+          <div className='row'>
+            <div className='form-check form-switch'>
+              <label
+                htmlFor='flexSwitchOutOfStock'
+                className='form-check-label'
+              >
+                Out of Stock
+              </label>
+              <input
+                type='checkbox'
+                role='switch'
+                value={beer?.out_of_stock}
+                className='form-check-input'
+                id='flexSwitchCheckDefault'
+              />
+            </div>
+          </div>
         </div>
 
         <button className='btn btn-secondary' type='submit' value='Update Beer'>

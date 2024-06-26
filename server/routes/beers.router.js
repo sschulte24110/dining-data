@@ -99,6 +99,21 @@ router.put('/:id', rejectUnauthenticated, async (req, res) => {
     });
 });
 
+router.put('/:id/outofstock', rejectUnauthenticated, (req, res) => {
+  const beerId = req.params.id;
+  const { out_of_stock } = req.body;
+
+  const queryText = `UPDATE "beers" SET "out_of_stock" = $1 WHERE "id" = $2;`;
+
+  pool
+    .query(queryText, [out_of_stock, beerId])
+    .then(() => res.sendStatus(200))
+    .catch((error) => {
+      console.log(`Error updating out of stock status`, error);
+      res.sendStatus(500);
+    });
+});
+
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality
   const queryText = `UPDATE "beers" SET deleted = true WHERE id=$1;`;

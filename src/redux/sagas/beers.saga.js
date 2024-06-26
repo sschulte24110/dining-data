@@ -50,6 +50,8 @@ function* deleteBeer(action) {
   }
 }
 
+
+
 function* beersSaga() {
   yield takeLatest('FETCH_BEERS', fetchBeers);
   yield takeLatest('ADD_BEER', addBeer);

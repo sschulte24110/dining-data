@@ -50,6 +50,7 @@ export default function BeerDetails() {
           </h6>
         </div>
       <div className='card'>
+      
         <img
           src={beerPhotoUrl}
           alt='a picture of the beer bottle or can'

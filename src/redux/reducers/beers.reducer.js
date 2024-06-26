@@ -1,3 +1,5 @@
+
+
 const beers = (state = [], action) => {
   if (action.type === 'SET_BEERS') {
     return action.payload;

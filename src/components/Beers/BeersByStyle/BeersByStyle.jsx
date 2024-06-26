@@ -17,7 +17,7 @@ export default function Beers() {
   }, []);
 
   return (
-    <div className='container'>
+    <>
       <div className='beer-header'>
         <h6 onClick={() => history.push('/beerstyle')} className='home-button'>
           Back
@@ -25,6 +25,7 @@ export default function Beers() {
         <h4>{beers[0].beer_style_name}</h4>
         <h6 onClick={() => history.push('/beerform')}>Add</h6>
       </div>
+    <div className='container'>
       <BeerSearch />
       <ul className='specific-beer-list'>
         {beers.map((beer, i) => (
@@ -52,5 +53,6 @@ export default function Beers() {
         ))}
       </ul>
     </div>
+    </>
   );
 }

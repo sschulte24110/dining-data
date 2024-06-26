@@ -29,8 +29,7 @@ export default function BeerDetails() {
     : '/images/stock-beer-bottle-dining-data.png';
 
   return (
-    <div className='container'>
-      <div className='card'>
+    <>
         <div className='details-header'>
           <h6
             onClick={() => {
@@ -40,7 +39,7 @@ export default function BeerDetails() {
           >
             Back
           </h6>
-          <h1 className='indiv-item-name'>{beer?.name}</h1>
+          <h2 className='indiv-item-name'>{beer?.name}</h2>
           <h6
             onClick={() => {
               history.push(`/editbeer/${beer.id}`);
@@ -49,6 +48,8 @@ export default function BeerDetails() {
             Edit
           </h6>
         </div>
+    <div className='container'>
+      <div className='card'>
         <img
           src={beerPhotoUrl}
           alt='a picture of the beer bottle or can'
@@ -83,5 +84,6 @@ export default function BeerDetails() {
         </button>
       </div>
     </div>
+  </>
   );
 }

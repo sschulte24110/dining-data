@@ -28,8 +28,7 @@ export default function WineDetails() {
     : '/images/wine-bottle-dining-data.png';
 
   return (
-    <div className='container'>
-      <div className='card'>
+    <>
         <div className='details-header'>
           <h6
             onClick={() => {
@@ -48,6 +47,8 @@ export default function WineDetails() {
             Edit
           </h6>
         </div>
+    <div className='container'>
+      <div className='card'>
 
         <img
           src={winePhotoUrl}
@@ -83,5 +84,6 @@ export default function WineDetails() {
         </button>
       </div>
     </div>
+    </>
   );
 }

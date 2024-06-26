@@ -11,3 +11,15 @@
   align-content: center;
   margin-top: 15px;
 }
+
+body:has(.vendor-page) {
+  background-image: url(../../../images/vendor-image-4.png);
+}
+
+.vendor-page .container {
+  opacity: 90%;
+  background-color: white;
+}
+.container {
+  padding: 10px;
+}

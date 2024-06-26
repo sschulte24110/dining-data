@@ -16,18 +16,20 @@ export default function Vendors() {
   }, []);
 
   return (
-    <div className='container'>
-      <div className='vendor-header'>
-        <h6 onClick={() => history.push('/home')}>Home</h6>
-        <h3>Manage Vendors</h3>
-        <h6 onClick={() => history.push('/vendorform')}>Add</h6>
+    <div className='vendor-page'>
+      <div className='container'>
+        <div className='vendor-header'>
+          <h6 onClick={() => history.push('/home')}>Home</h6>
+          <h3>Manage Vendors</h3>
+          <h6 onClick={() => history.push('/vendorform')}>Add</h6>
+        </div>
+        <VendorSearch />
+        <ul className='vendors'>
+          {vendors.map((vendor) => (
+            <VendorList key={vendor.id} vendor={vendor} />
+          ))}
+        </ul>
       </div>
-      <VendorSearch />
-      <ul className='vendors'>
-        {vendors.map((vendor) => (
-          <VendorList key={vendor.id} vendor={vendor} />
-        ))}
-      </ul>
     </div>
   );
 }

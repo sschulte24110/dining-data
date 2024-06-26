@@ -31,6 +31,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     beers.description,
     beers.vendor_id,
     beers.deleted,
+    beers.out_of_stock,
     beer_style.beer_style AS beer_style_name
 FROM 
     beers

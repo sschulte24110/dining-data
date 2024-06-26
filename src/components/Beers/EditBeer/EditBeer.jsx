@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './EditBeer.css';
+import { toggleStockRequest } from '../../../redux/sagas/beers.saga';
 
 export default function EditBeer() {
   const { id } = useParams();
@@ -41,6 +42,10 @@ export default function EditBeer() {
     dispatch({ type: 'DELETE_BEER', payload: beerID });
     history.push('/beerstyle');
   };
+
+  const toggleStock = (beerID, out_of_stock) => {
+    dispatch(toggleStockRequest(beerID, out_of_stock));
+  }
 
   return (
     <div className='container'>
@@ -178,20 +183,20 @@ export default function EditBeer() {
             </div>
           </div>
           <div className='row'>
-            <div className='form-check form-switch'>
+            <div className='form-check'>
+              <input
+                className='form-check-input'
+                type='checkbox'
+                checked={beer?.out_of_stock}
+                onChange={(event) => setBeer({...beer, out_of_stock: event.target.out_of_stock})}
+                id='flexCheckDefault'
+              />
               <label
                 htmlFor='flexSwitchOutOfStock'
                 className='form-check-label'
               >
                 Out of Stock
               </label>
-              <input
-                type='checkbox'
-                role='switch'
-                value={beer?.out_of_stock}
-                className='form-check-input'
-                id='flexSwitchCheckDefault'
-              />
             </div>
           </div>
         </div>

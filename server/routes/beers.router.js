@@ -31,6 +31,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
     beers.description,
     beers.vendor_id,
     beers.deleted,
+    beers.out_of_stock,
     beer_style.beer_style AS beer_style_name
 FROM 
     beers
@@ -77,7 +78,7 @@ router.put('/:id', rejectUnauthenticated, async (req, res) => {
   console.log(req.body);
   console.log(`in /beers put`);
 
-  const queryText = `UPDATE "beers" SET name=$1, brewery=$2, beer_style=$3, abv=$4, photo_url=$5, description=$6, vendor_id=$7 WHERE id=$8 AND "user_id"=$9;`;
+  const queryText = `UPDATE "beers" SET name=$1, brewery=$2, beer_style=$3, abv=$4, photo_url=$5, description=$6, vendor_id=$7, out_of_stock=$8 WHERE id=$9 AND "user_id"=$10;`;
   await pool
     .query(queryText, [
       req.body.name,
@@ -87,6 +88,7 @@ router.put('/:id', rejectUnauthenticated, async (req, res) => {
       req.body.photo_url,
       req.body.description,
       req.body.vendor_id,
+      req.body.out_of_stock,
       req.params.id,
       req.user.id,
     ])
@@ -99,20 +101,20 @@ router.put('/:id', rejectUnauthenticated, async (req, res) => {
     });
 });
 
-router.put('/:id/outofstock', rejectUnauthenticated, (req, res) => {
-  const beerId = req.params.id;
-  const { out_of_stock } = req.body;
+// router.put('/:id/outofstock', rejectUnauthenticated, (req, res) => {
+//   const beerId = req.params.id;
+//   const { out_of_stock } = req.body;
 
-  const queryText = `UPDATE "beers" SET "out_of_stock" = $1 WHERE "id" = $2;`;
+//   const queryText = `UPDATE "beers" SET "out_of_stock" = $1 WHERE "id" = $2;`;
 
-  pool
-    .query(queryText, [out_of_stock, beerId])
-    .then(() => res.sendStatus(200))
-    .catch((error) => {
-      console.log(`Error updating out of stock status`, error);
-      res.sendStatus(500);
-    });
-});
+//   pool
+//     .query(queryText, [out_of_stock, beerId])
+//     .then(() => res.sendStatus(200))
+//     .catch((error) => {
+//       console.log(`Error updating out of stock status`, error);
+//       res.sendStatus(500);
+//     });
+// });
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality

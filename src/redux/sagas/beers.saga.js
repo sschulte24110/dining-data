@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
 function* fetchBeers() {
   try {
@@ -32,7 +32,7 @@ function* fetchStyleBeer(action) {
 
 function* updateBeer(action) {
   try {
-    yield axios.put(`/api/beers/${action.payload.id}`, {name: action.payload.name, brewery: action.payload.brewery, beer_style: action.payload.beer_style, abv: action.payload.abv, photo_url: action.payload.photo_url, description: action.payload.description, vendor_id: action.payload.vendor_id})
+    yield axios.put(`/api/beers/${action.payload.id}`, {name: action.payload.name, brewery: action.payload.brewery, beer_style: action.payload.beer_style, abv: action.payload.abv, photo_url: action.payload.photo_url, description: action.payload.description, out_of_stock: action.payload.out_of_stock, vendor_id: action.payload.vendor_id})
     yield put({ type: 'FETCH_BEERS'})
   } catch (error) {
     alert(`Error editing beer`);
@@ -50,14 +50,29 @@ function* deleteBeer(action) {
   }
 }
 
+export const toggleStockRequest = (beerID, out_of_stock) => ({
+  type: 'TOGGLE_STOCK_REQUEST',
+  payload: { beerID, out_of_stock},
+})
 
+// function* toggleStockStatus(action) {
+//   try {
+//     const { beerID, out_of_stock } = action.payload;
+//     yield call(axios.put, `api/beers/${beerID}`, { out_of_stock });
+//     yield put({ type: 'TOGGLE_STOCK_SUCCESS', payload: { beerID, out_of_stock}})
+//   } catch (error) {
+//     console.log(`Error toggling stock status`);
+//     yield put({ type: 'TOGGLE_ADMIN_FAILURE', error})
+//   }
+// }
 
 function* beersSaga() {
   yield takeLatest('FETCH_BEERS', fetchBeers);
   yield takeLatest('ADD_BEER', addBeer);
   yield takeLatest('FETCH_STYLE_BEER', fetchStyleBeer);
   yield takeLatest('UPDATE_BEER', updateBeer);
-  yield takeLatest('DELETE_BEER', deleteBeer)
+  yield takeLatest('DELETE_BEER', deleteBeer);
+  // yield takeLatest('TOGGLE_STOCK_REQUEST', toggleStockStatus)
 }
 
 export default beersSaga;

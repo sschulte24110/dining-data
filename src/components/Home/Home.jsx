@@ -20,7 +20,6 @@ export default function Home() {
           className='beer-home-icon'
           onClick={() => history.push('/beerstyle')}
         >
-          {/* <img src='../images/icons8-beer-mug-99.png' alt='Beer Mug Icon' /> */}
           <h1 className='home-icon-text'>Beer</h1>
         </div>
         <br />
@@ -28,10 +27,6 @@ export default function Home() {
           className='wine-home-icon'
           onClick={() => history.push('/winevarietals')}
         >
-          {/* <img
-            src='../images/icons8-wine-glass-100 (1).png'
-            alt='Wine Glass Icon'
-          /> */}
           <h1 className='home-icon-text'>Wine</h1>
         </div>
         <br />
@@ -39,10 +34,6 @@ export default function Home() {
           className='vendor-home-icon'
           onClick={() => history.push('/vendors')}
         >
-          {/* <img
-            src='../images/icons8-delivery-truck-100.png'
-            alt='Delivery Truck Icon'
-          /> */}
           <h1 className='home-icon-text'>Vendors</h1>
         </div>
         <br />
@@ -51,7 +42,6 @@ export default function Home() {
             className='user-home-icon'
             onClick={() => history.push('/user')}
           >
-            {/* <img src='../images/icons8-user-96.png' alt='User Icon' /> */}
             <h1 className='home-icon-text'>Users</h1>
           </div>
         )}

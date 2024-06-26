@@ -29,6 +29,7 @@ export default function WineDetails() {
 
   return (
     <>
+    <div className='container'>
         <div className='details-header'>
           <h6
             onClick={() => {
@@ -47,7 +48,6 @@ export default function WineDetails() {
             Edit
           </h6>
         </div>
-    <div className='container'>
       <div className='card'>
 
         <img

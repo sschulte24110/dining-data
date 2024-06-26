@@ -30,6 +30,7 @@ export default function BeerDetails() {
 
   return (
     <>
+    <div className='container'>
         <div className='details-header'>
           <h6
             onClick={() => {
@@ -48,7 +49,6 @@ export default function BeerDetails() {
             Edit
           </h6>
         </div>
-    <div className='container'>
       <div className='card'>
         <img
           src={beerPhotoUrl}

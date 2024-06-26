@@ -18,6 +18,7 @@ export default function WinesByVarietal() {
 
   return (
     <>
+    <div className='container'>
       <div className='wine-header'>
         <h6
           onClick={() => history.push('/winevarietals')}
@@ -28,7 +29,6 @@ export default function WinesByVarietal() {
         <h4>{wines[0].wine_varietal_name}</h4>
         <h6 onClick={() => history.push('/wineform')}>Add</h6>
       </div>
-    <div className='container'>
       <WineSearch />
       <ul className='specific-wine-list'>
         {wines.map((wine, i) => (

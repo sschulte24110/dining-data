@@ -17,8 +17,8 @@ function UserPage() {
 
   const user = useSelector((store) => store.user);
   return (
+    <>
     <div className='container'>
-      <div>
         <div className='users-header'>
           <h6
             className='user-home-button'
@@ -28,6 +28,7 @@ function UserPage() {
           </h6>
           <h1 className='user-heading'>Manage Users</h1>
         </div>
+      <div>
         <div className='user-info'>
           <h3>Welcome, {user.name}!</h3>
           
@@ -48,8 +49,7 @@ function UserPage() {
         </table>
       </div>
     </div>
+    </>
   );
 }
-
-// this allows us to use <App /> in index.js
 export default UserPage;

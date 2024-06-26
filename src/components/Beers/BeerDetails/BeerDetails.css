@@ -19,6 +19,6 @@
   align-items: center;
   justify-content: space-between;
   align-content: center;
-  margin-top: 15px;
-  padding: 0 15px;
+  margin: 15px 5px; 
+  padding: 0 5px;
 }

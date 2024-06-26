@@ -18,6 +18,7 @@ export default function BeerStyle() {
 
   return (
     <>
+      <div className='container'>
         <div className='beer-header'>
           <h6 onClick={() => history.push('/home')} className='home-button'>
             Home
@@ -25,7 +26,6 @@ export default function BeerStyle() {
           <h3>Beer Styles</h3>
           <h6 onClick={() => history.push('/beerform')}>Add</h6>
         </div>
-      <div className='container'>
         <BeerSearch />
         <ul className='beer-styles-list'>
           {styles.map((style) => (

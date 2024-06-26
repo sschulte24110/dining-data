@@ -26,7 +26,7 @@ function UserPage() {
           >
             Home
           </h6>
-          <h1>Manage Users</h1>
+          <h1 className='user-heading'>Manage Users</h1>
         </div>
         <div className='user-info'>
           <h3>Welcome, {user.name}!</h3>

@@ -4,20 +4,25 @@
 
 .users-header {
   display: flex;
-  height: 50px;
-  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   align-content: center;
-  margin-top: 15px;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .user-home-button {
-  margin-right: 65px;
+  position: absolute;
+  left: 0;
+}
+
+.user-heading {
+    text-align: center;
 }
 
 .user-info {
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
 th {

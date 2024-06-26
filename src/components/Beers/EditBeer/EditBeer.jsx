@@ -2,11 +2,14 @@ import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import './EditBeer.css';
 
 export default function EditBeer() {
   const { id } = useParams();
   const [beer, setBeer] = useState(null);
+  const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -31,11 +34,12 @@ export default function EditBeer() {
     history.push('/beerstyle');
   };
 
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const deleteBeer = (beerID) => {
-    if (window.confirm('Are you sure you want to delete this beer?')) {
-      dispatch({ type: 'DELETE_BEER', payload: beerID });
-      history.push('/beerstyle');
-    }
+    dispatch({ type: 'DELETE_BEER', payload: beerID });
+    history.push('/beerstyle');
   };
 
   return (
@@ -185,13 +189,30 @@ export default function EditBeer() {
         >
           Cancel
         </button>
-        <button
-          className='btn btn-secondary'
-          type='button'
-          onClick={() => deleteBeer(beer.id)}
-        >
+        <Button variant='secondary' onClick={handleShow}>
           Delete
-        </button>
+        </Button>
+        <div>
+          <Modal
+            show={show}
+            onHide={handleClose}
+            backdrop='static'
+            keyboard={false}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>Delete Beer?</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Are you sure you want to delete this beer?</Modal.Body>
+            <Modal.Footer>
+              <Button variant='secondary' onClick={handleClose}>
+                Close
+              </Button>
+              <Button onClick={() => deleteBeer(beer.id)} variant='primary'>
+                Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
       </form>
     </div>
   );

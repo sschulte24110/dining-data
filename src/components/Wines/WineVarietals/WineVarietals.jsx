@@ -17,22 +17,22 @@ export default function WineVarietals() {
   }, []);
 
   return (
-    <>
-    <div className='container'>
-      <div className='wine-header'>
-        <h6 onClick={() => history.push('/home')} className='home-button'>
-          Home
-        </h6>
-        <h3>Wine Varietals</h3>
-        <h6 onClick={() => history.push('/wineform')}>Add</h6>
+    <div className='wine-page'>
+      <div className='container'>
+        <div className='wine-header'>
+          <h6 onClick={() => history.push('/home')} className='home-button'>
+            Home
+          </h6>
+          <h3>Wine Varietals</h3>
+          <h6 onClick={() => history.push('/wineform')}>Add</h6>
+        </div>
+        <WineSearch />
+        <ul className='wine-varietals-list'>
+          {varietals.map((varietal) => (
+            <WineVarietalsList key={varietal.id} varietal={varietal} />
+          ))}
+        </ul>
       </div>
-      <WineSearch />
-      <ul className='wine-varietals-list'>
-        {varietals.map((varietal) => (
-          <WineVarietalsList key={varietal.id} varietal={varietal} />
-        ))}
-      </ul>
     </div>
-    </>
   );
 }

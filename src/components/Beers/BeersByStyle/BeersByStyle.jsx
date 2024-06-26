@@ -17,7 +17,7 @@ export default function Beers() {
   }, []);
 
   return (
-    <>
+    <div className='beer-page'>
     <div className='container'>
       <div className='beer-header'>
         <h6 onClick={() => history.push('/beerstyle')} className='home-button'>
@@ -53,6 +53,6 @@ export default function Beers() {
         ))}
       </ul>
     </div>
-    </>
+    </div>
   );
 }

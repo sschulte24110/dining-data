@@ -12,3 +12,15 @@
   margin-top: 15px;
   padding: 0 5px;
 }
+
+body:has(.wine-page) {
+  background-image: url(../../../images/wine-bottles.png);
+}
+
+.wine-page .container {
+  opacity: 90%;
+  background-color: white;
+}
+.container {
+  padding: 10px;
+}

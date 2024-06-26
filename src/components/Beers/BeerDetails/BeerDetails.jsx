@@ -29,7 +29,7 @@ export default function BeerDetails() {
     : '/images/stock-beer-bottle-dining-data.png';
 
   return (
-    <>
+    <div className='beer-page'>
     <div className='container'>
         <div className='details-header'>
           <h6
@@ -84,6 +84,6 @@ export default function BeerDetails() {
         </button>
       </div>
     </div>
-  </>
+  </div>
   );
 }

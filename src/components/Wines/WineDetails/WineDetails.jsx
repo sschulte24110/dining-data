@@ -28,8 +28,8 @@ export default function WineDetails() {
     : '/images/wine-bottle-dining-data.png';
 
   return (
-    <>
-    <div className='container'>
+    <div className='wine-page'>
+      <div className='container'>
         <div className='details-header'>
           <h6
             onClick={() => {
@@ -48,42 +48,43 @@ export default function WineDetails() {
             Edit
           </h6>
         </div>
-      <div className='card'>
-
-        <img
-          src={winePhotoUrl}
-          alt='a picture of a bottle of wine'
-          className='card-image-top'
-        />
-        <ul className='list-group list-group-flush'>
-          <li className='list-group-item'>Region: {wine?.region}</li>
-          <li className='list-group-item'>
-            Varietal: {wine?.wine_varietal_name}
-          </li>
-          <li className='list-group-item'>Year: {wine?.year}</li>
-          <li className='list-group-item'>Description: {wine?.description}</li>
-          <li className='list-group-item'></li>
-        </ul>
-        <button
-          id='details-button'
-          className='btn btn-outline-secondary'
-          onClick={() => {
-            history.push(`/winesbyvarietal/editwine/${wine.id}`);
-          }}
-        >
-          Edit
-        </button>
-        <button
-          id='details-button'
-          className='btn btn-outline-secondary'
-          onClick={() => {
-            history.push(`/winesbyvarietal/${wine.wine_varietal_id}`);
-          }}
-        >
-          Back
-        </button>
+        <div className='card'>
+          <img
+            src={winePhotoUrl}
+            alt='a picture of a bottle of wine'
+            className='card-image-top'
+          />
+          <ul className='list-group list-group-flush'>
+            <li className='list-group-item'>Region: {wine?.region}</li>
+            <li className='list-group-item'>
+              Varietal: {wine?.wine_varietal_name}
+            </li>
+            <li className='list-group-item'>Year: {wine?.year}</li>
+            <li className='list-group-item'>
+              Description: {wine?.description}
+            </li>
+            <li className='list-group-item'></li>
+          </ul>
+          <button
+            id='details-button'
+            className='btn btn-outline-secondary'
+            onClick={() => {
+              history.push(`/winesbyvarietal/editwine/${wine.id}`);
+            }}
+          >
+            Edit
+          </button>
+          <button
+            id='details-button'
+            className='btn btn-outline-secondary'
+            onClick={() => {
+              history.push(`/winesbyvarietal/${wine.wine_varietal_id}`);
+            }}
+          >
+            Back
+          </button>
+        </div>
       </div>
     </div>
-    </>
   );
 }

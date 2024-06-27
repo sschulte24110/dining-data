@@ -33,10 +33,11 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 	wines.description,
 	wines.vendor_id,
   wines.deleted,
+  wines.out_of_stock,
 	wine_varietal.wine_varietal as wine_varietal_name
 FROM wines
 JOIN wine_varietal ON wines.wine_varietal_id = wine_varietal.id
-WHERE wine_varietal.id=$1 and wines.deleted=false
+WHERE wine_varietal.id=$1 and wines.deleted=false and wines.out_of_stock=false
 ORDER BY name_winery;`;
   pool
     .query(queryText, [req.params.id])
@@ -99,9 +100,9 @@ router.put('/:id', rejectUnauthenticated, async (req, res) => {
     });
 });
 
-router.put('winedetails/:id', rejectUnauthenticated, async (req, res) => {
+router.put('/winedetails/:id', rejectUnauthenticated, async (req, res) => {
   const queryText = `UPDATE "wines" SET "out_of_stock" = true WHERE "id" = $1`;
-  await pool(queryText, [req.params.id])
+  await pool.query(queryText, [req.params.id])
   .then((result) => {
     res.sendStatus(200);
   }).catch((error) => {

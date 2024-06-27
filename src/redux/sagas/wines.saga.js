@@ -32,7 +32,7 @@ function* fetchWineByVarietal(action) {
 
 function* updateWineStock(action) {
   try {
-    yield axios.put(`/api/wines/${action.payload}`);
+    yield axios.put(`/api/wines/winedetails/${action.payload}`);
     yield put({ type: 'FETCH_WINES'});
   } catch (error) {
     alert(`Error marking wine out of stock`);

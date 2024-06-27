@@ -75,7 +75,7 @@ export default function WineDetails() {
             className='btn btn-outline-danger'
             onClick={() => outOfStock(wine?.id)}
           >
-            Out of Stock
+            Mark Out of Stock
           </button>
           <button
             id='details-button'

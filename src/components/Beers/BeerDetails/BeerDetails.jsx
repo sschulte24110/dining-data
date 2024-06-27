@@ -28,9 +28,14 @@ export default function BeerDetails() {
     ? beer.photo_url
     : '/images/stock-beer-bottle-dining-data.png';
 
+  const outOfStock = (beerID) => {
+    dispatch({ type: 'UPDATE_BEER_STOCK', payload: beerID });
+    history.push(`/beerstyle`);
+  };
+
   return (
     <div className='beer-page'>
-    <div className='container'>
+      <div className='container'>
         <div className='details-header'>
           <h6
             onClick={() => {
@@ -49,41 +54,49 @@ export default function BeerDetails() {
             Edit
           </h6>
         </div>
-      <div className='card'>
-        <img
-          src={beerPhotoUrl}
-          alt='a picture of the beer bottle or can'
-          className='card-image-top'
-        />
+        <div className='card'>
+          <img
+            src={beerPhotoUrl}
+            alt='a picture of the beer bottle or can'
+            className='card-image-top'
+          />
 
-        <ul className='list-group list-group-flush'>
-          <li className='list-group-item'>Name: {beer?.name}</li>
-          <li className='list-group-item'>Brewery: {beer?.brewery}</li>
-          <li className='list-group-item'>Style: {beer?.beer_style_name}</li>
-          <li className='list-group-item'>ABV: {beer?.abv}</li>
-          <li className='list-group-item'>Description: {beer?.description}</li>
-        </ul>
-
-        <button
-          id='details-button'
-          className='btn btn-outline-secondary'
-          onClick={() => {
-            history.push(`/editbeer/${beer.id}`);
-          }}
-        >
-          Edit
-        </button>
-        <button
-          id='details-button'
-          className='btn btn-outline-secondary'
-          onClick={() => {
-            history.push(`/beersbystyle/${beer.beer_style}`);
-          }}
-        >
-          Back
-        </button>
+          <ul className='list-group list-group-flush'>
+            <li className='list-group-item'>Name: {beer?.name}</li>
+            <li className='list-group-item'>Brewery: {beer?.brewery}</li>
+            <li className='list-group-item'>Style: {beer?.beer_style_name}</li>
+            <li className='list-group-item'>ABV: {beer?.abv}</li>
+            <li className='list-group-item'>
+              Description: {beer?.description}
+            </li>
+          </ul>
+          <button
+            id='details-button'
+            className='btn btn-outline-danger'
+            onClick={() => outOfStock(beer?.id)}
+          >
+            Out of Stock
+          </button>
+          <button
+            id='details-button'
+            className='btn btn-outline-secondary'
+            onClick={() => {
+              history.push(`/editbeer/${beer.id}`);
+            }}
+          >
+            Edit
+          </button>
+          <button
+            id='details-button'
+            className='btn btn-outline-secondary'
+            onClick={() => {
+              history.push(`/beersbystyle/${beer.beer_style}`);
+            }}
+          >
+            Back
+          </button>
+        </div>
       </div>
     </div>
-  </div>
   );
 }

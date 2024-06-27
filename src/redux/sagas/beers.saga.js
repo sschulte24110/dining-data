@@ -30,6 +30,16 @@ function* fetchStyleBeer(action) {
   }
 }
 
+function* updateBeerStock(action) {
+  try {
+    yield axios.put(`/api/beers/beerdetails/${action.payload}`);
+    yield put({ type: 'FETCH_BEERS'});
+  } catch (error) {
+    alert(`Error marking beer out of stock`);
+    console.log(`Error marking beer out of stock`, error);
+  }
+}
+
 function* updateBeer(action) {
   try {
     yield axios.put(`/api/beers/${action.payload.id}`, {name: action.payload.name, brewery: action.payload.brewery, beer_style: action.payload.beer_style, abv: action.payload.abv, photo_url: action.payload.photo_url, description: action.payload.description, vendor_id: action.payload.vendor_id})
@@ -39,6 +49,8 @@ function* updateBeer(action) {
     console.log(`Error editing beer`, error);
   }
 }
+
+
 
 function* deleteBeer(action) {
   try {
@@ -55,7 +67,8 @@ function* beersSaga() {
   yield takeLatest('ADD_BEER', addBeer);
   yield takeLatest('FETCH_STYLE_BEER', fetchStyleBeer);
   yield takeLatest('UPDATE_BEER', updateBeer);
-  yield takeLatest('DELETE_BEER', deleteBeer)
+  yield takeLatest('DELETE_BEER', deleteBeer);
+  yield takeLatest('UPDATE_BEER_STOCK', updateBeerStock);
 }
 
 export default beersSaga;

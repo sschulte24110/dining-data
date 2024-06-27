@@ -16,6 +16,7 @@ export default function Beers() {
     dispatch({ type: 'FETCH_STYLE_BEER', payload: params.id });
   }, []);
 
+
   return (
     <div className='beer-page'>
     <div className='container'>
@@ -27,6 +28,11 @@ export default function Beers() {
         <h6 onClick={() => history.push('/beerform')}>Add</h6>
       </div>
       <BeerSearch />
+      <ul className="nav nav-tabs">
+        <li className="nav-item">
+          <a href="" className="nav-link active">In Stock</a>
+        </li>
+      </ul>
       <ul className='specific-beer-list'>
         {beers.map((beer, i) => (
           <div key={beer.id}>
@@ -39,14 +45,6 @@ export default function Beers() {
                 <div className='beerName'>{beer.name}</div>
                 <div className='beerBrewery'>{beer.brewery}</div>
               </li>
-              <button
-                className='btn btn-outline-secondary'
-                onClick={() => {
-                  history.push(`/editbeer/${beer.id}`);
-                }}
-              >
-                Edit
-              </button>
             </div>
             <hr />
           </div>

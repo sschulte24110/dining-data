@@ -27,6 +27,11 @@ export default function WineDetails() {
     ? wine.photo_url
     : '/images/wine-bottle-dining-data.png';
 
+    const outOfStock = (wineID) => {
+      dispatch({ type: 'UPDATE_WINE_STOCK', payload: wineID });
+      history.push(`/winevarietals`);
+    };
+
   return (
     <div className='wine-page'>
       <div className='container'>
@@ -65,6 +70,13 @@ export default function WineDetails() {
             </li>
             <li className='list-group-item'></li>
           </ul>
+          <button
+            id='details-button'
+            className='btn btn-outline-danger'
+            onClick={() => outOfStock(wine?.id)}
+          >
+            Out of Stock
+          </button>
           <button
             id='details-button'
             className='btn btn-outline-secondary'

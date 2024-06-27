@@ -37,7 +37,7 @@ FROM
     beers
 JOIN 
     beer_style ON beers.beer_style = beer_style.id
-WHERE beer_style.id=$1 and beers.deleted=false
+WHERE beer_style.id=$1 and beers.deleted=false and beers.out_of_stock=false
 ORDER BY name;`;
   pool
     .query(queryText, [req.params.id])
@@ -96,6 +96,19 @@ router.put('/:id', rejectUnauthenticated, async (req, res) => {
     })
     .catch((error) => {
       console.log('Error in put:', error);
+      res.sendStatus(500);
+    });
+});
+
+router.put('/beerdetails/:id', rejectUnauthenticated, async (req, res) => {
+  const queryText = `UPDATE "beers" SET "out_of_stock" = true WHERE "id" = $1;`;
+  await pool
+    .query(queryText, [req.params.id])
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Error in out of stock`, error);
       res.sendStatus(500);
     });
 });

@@ -28,11 +28,9 @@ export default function Beers() {
         <h6 onClick={() => history.push('/beerform')}>Add</h6>
       </div>
       <BeerSearch />
-      <ul className="nav nav-tabs">
-        <li className="nav-item">
-          <a href="" className="nav-link active">In Stock</a>
-        </li>
-      </ul>
+      <div className="out-of-stock-link" onClick={() => history.push(`/beersoutofstock`)}>
+        <h5 className='stock-link'>View Out of Stock Beers</h5>
+      </div>
       <ul className='specific-beer-list'>
         {beers.map((beer, i) => (
           <div key={beer.id}>

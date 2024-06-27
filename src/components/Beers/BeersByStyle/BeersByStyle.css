@@ -10,4 +10,10 @@
 .indiv-beer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.stock-link {
+  text-decoration: underline;
+  margin-bottom: 20px;
 }

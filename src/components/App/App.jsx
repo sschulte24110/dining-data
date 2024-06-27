@@ -37,6 +37,7 @@ import EditWine from '../Wines/EditWine/EditWine';
 import './App.css';
 import VendorDetails from '../Vendors/VendorDetails/VendorDetails';
 import WineDetails from '../Wines/WineDetails/WineDetails';
+import OutOfStockBeer from '../Beers/OutOfStockBeer/OutOfStockBeer';
 
 function App() {
   const dispatch = useDispatch();
@@ -75,6 +76,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute exact path='/beersbystyle/:id' component={BeersByStyle}>
             <BeersByStyle />
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/beersoutofstock/' component={OutOfStockBeer}>
+            <OutOfStockBeer />
           </ProtectedRoute>
           <ProtectedRoute exact path='/beerform'>
             <BeerForm />

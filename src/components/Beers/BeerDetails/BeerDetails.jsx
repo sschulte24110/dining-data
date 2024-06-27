@@ -29,7 +29,7 @@ export default function BeerDetails() {
     : '/images/stock-beer-bottle-dining-data.png';
 
   const outOfStock = (beerID) => {
-    dispatch({ type: 'UPDATE_BEER_STOCK', payload: beerID });
+    dispatch({ type: 'UPDATE_BEER_OUT_OF_STOCK', payload: beerID });
     history.push(`/beerstyle`);
   };
 

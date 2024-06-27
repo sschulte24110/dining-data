@@ -1,0 +1,11 @@
+body:has(.beer-page) {
+  background-image: url(../../../images/beer-wall-3.png);
+}
+
+.beer-page .container {
+  opacity: 90%;
+  background-color: white;
+}
+.container {
+  padding: 10px;
+}

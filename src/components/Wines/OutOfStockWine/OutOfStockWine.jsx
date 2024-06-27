@@ -26,16 +26,16 @@ export default function OutOfStockWine() {
             onClick={() => history.push('/winevarietals')}
             className='home-button'
           >
-            Wine Varietals
+            Varietals
           </h6>
           <h4>Out of Stock Wines</h4>
           <h6 onClick={() => history.push('/home')}>Home</h6>
         </div>
         <ul className='wine-styles-list'>
           {wines.map((wine) => (
-            <div>
+            <div key={wine.id}>
               <div className='indiv-wine'>
-                <li key={wine.id}>{wine.name_winery}</li>
+                <li>{wine.name_winery}</li>
                 <button
                   className='btn btn-outline-secondary'
                   onClick={() => inStock(wine.id)}

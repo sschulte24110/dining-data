@@ -21,6 +21,16 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     });
 });
 
+router.get('/winesoutofstock/', rejectUnauthenticated, (req, res) => {
+  let queryText = `SELECT * FROM "wines" WHERE out_of_stock = TRUE ORDER BY name_winery;`
+  pool.query(queryText).then((result) => {
+    res.send(result.rows);
+  }).catch((error) => {
+    console.log('Error getting out of stock', error);
+    res.sendStatus(500);
+  })
+})
+
 router.get('/:id', rejectUnauthenticated, (req, res) => {
   console.log(`Getting Wines with specific varietal`);
   let queryText = `SELECT
@@ -110,6 +120,19 @@ router.put('/winedetails/:id', rejectUnauthenticated, async (req, res) => {
     res.sendStatus(500);
   })
 })
+
+router.put('/winesoutofstock/:id', rejectUnauthenticated, async (req, res) => {
+  const queryText = `UPDATE "wines" SET "out_of_stock" = false WHERE "id" = $1;`;
+  await pool
+    .query(queryText, [req.params.id])
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log(`Error in back in of stock`, error);
+      res.sendStatus(500);
+    });
+});
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
   // endpoint functionality

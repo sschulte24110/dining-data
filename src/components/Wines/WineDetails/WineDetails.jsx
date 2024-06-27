@@ -28,7 +28,7 @@ export default function WineDetails() {
     : '/images/wine-bottle-dining-data.png';
 
     const outOfStock = (wineID) => {
-      dispatch({ type: 'UPDATE_WINE_STOCK', payload: wineID });
+      dispatch({ type: 'UPDATE_WINE_OUT_OF_STOCK', payload: wineID });
       history.push(`/winevarietals`);
     };
 

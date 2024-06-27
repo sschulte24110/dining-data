@@ -23,21 +23,23 @@ import Home from '../Home/Home';
 import Vendors from '../Vendors/Vendors';
 import VendorForm from '../Vendors/VendorForm/VendorForm';
 import EditVendor from '../Vendors/EditVendor/EditVendor';
+import VendorDetails from '../Vendors/VendorDetails/VendorDetails';
 
 import BeerStyle from '../Beers/BeerStyle/BeerStyle';
 import BeersByStyle from '../Beers/BeersByStyle/BeersByStyle';
 import BeerForm from '../Beers/BeerForm/BeerForm';
 import BeerDetails from '../Beers/BeerDetails/BeerDetails';
 import EditBeer from '../Beers/EditBeer/EditBeer';
+import OutOfStockBeer from '../Beers/OutOfStockBeer/OutOfStockBeer';
 
 import WineVarietals from '../Wines/WineVarietals/WineVarietals';
 import WinesByVarietal from '../Wines/WinesByVarietal/WinesByVarietal';
 import WineForm from '../Wines/WineForm/WineForm';
-import EditWine from '../Wines/EditWine/EditWine';
-import './App.css';
-import VendorDetails from '../Vendors/VendorDetails/VendorDetails';
 import WineDetails from '../Wines/WineDetails/WineDetails';
-import OutOfStockBeer from '../Beers/OutOfStockBeer/OutOfStockBeer';
+import EditWine from '../Wines/EditWine/EditWine';
+import OutOfStockWine from '../Wines/OutOfStockWine/OutOfStockWine';
+
+import './App.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -95,6 +97,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute exact path='/winesbyvarietal/:id' component={WinesByVarietal}>
             <WinesByVarietal />
+          </ProtectedRoute>
+          <ProtectedRoute exact path='/winesoutofstock/' component={OutOfStockWine}>
+            <OutOfStockWine />
           </ProtectedRoute>
           <ProtectedRoute exact path='/wineform'>
             <WineForm />

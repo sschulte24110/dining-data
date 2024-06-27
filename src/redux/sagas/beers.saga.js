@@ -15,7 +15,7 @@ function* fetchOutOfStockBeers() {
     const response = yield axios.get('api/beers/beersoutofstock');
     yield put({ type: 'SET_OUT_OF_STOCK_BEERS', payload: response.data})
   } catch (error) {
-    console.error(`Error gettting out of stock`)
+    console.error(`Error getting out of stock`)
   }
 }
 

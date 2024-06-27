@@ -32,6 +32,14 @@ export default function WineVarietals() {
             <WineVarietalsList key={varietal.id} varietal={varietal} />
           ))}
         </ul>
+        <div className='out-stock-button'>
+          <button
+            className='btn btn-outline-secondary'
+            onClick={() => history.push(`/winesoutofstock`)}
+          >
+            View Out of Stock Wines
+          </button>
+        </div>
       </div>
     </div>
   );

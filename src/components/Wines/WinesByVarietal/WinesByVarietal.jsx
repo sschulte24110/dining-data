@@ -33,27 +33,28 @@ export default function WinesByVarietal() {
         <ul className='specific-wine-list'>
           {wines.map((wine, i) => (
             <div key={wine.id}>
-              <div className='indiv-wine'>
-                <li
-                  onClick={() => {
-                    history.push(`winedetails/${wine.id}`);
-                  }}
-                >
+              <div
+                className='indiv-wine'
+                onClick={() => {
+                  history.push(`winedetails/${wine.id}`);
+                }}
+              >
+                <li>
                   <div className='wineName'>{wine.name_winery}</div>
                 </li>
-                <button
-                  className='btn btn-outline-secondary'
-                  onClick={() => {
-                    history.push(`/winesbyvarietal/editwine/${wine.id}`);
-                  }}
-                >
-                  Edit
-                </button>
               </div>
               <hr />
             </div>
           ))}
         </ul>
+        <div className='out-stock-button'>
+          <button
+            className='btn btn-outline-secondary'
+            onClick={() => history.push(`/winesoutofstock`)}
+          >
+            View Out of Stock Wines
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -14,8 +14,6 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Home from '../Home/Home';
@@ -124,13 +122,6 @@ function App() {
             <EditVendor />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            exact
-            path='/info'
-          >
-            <InfoPage />
-          </ProtectedRoute>
-
           <Route exact path='/login'>
             {user.id ? (
               <Redirect to='/home' />
@@ -147,13 +138,6 @@ function App() {
             )}
           </Route>
 
-          <Route exact path='/home'>
-            {user.id ? (
-              <Redirect to='/user' />
-            ) : (
-              <LandingPage />
-            )}
-          </Route>
           <Route>
             <h1>404</h1>
             <p>This route doesn't exist.</p>

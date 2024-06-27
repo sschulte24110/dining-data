@@ -79,7 +79,6 @@ router.put(`/:id/admin`, rejectUnauthenticated, (req, res) => {
 });
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-  // endpoint functionality
   const queryText = `UPDATE "user" SET deleted = true WHERE "id"=$1;`;
   pool
     .query(queryText, [req.params.id])

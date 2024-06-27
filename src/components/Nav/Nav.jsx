@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHome,
@@ -18,9 +17,6 @@ function Nav() {
 
   return (
     <div className='nav'>
-      {/* <Link to='/home'>
-        <img src='./images/dining-data-vert.png' alt="Dining Data Logo" />
-      </Link> */}
       <div>
         {/* If no user is logged in, show these links */}
         {!user.id && (
@@ -69,17 +65,9 @@ function Nav() {
             </li>
           </>
         )}
-
-        {/* <Link className='navLink' to='/about'>
-          About
-        </Link> */}
       </div>
     </div>
   );
 }
 
 export default Nav;
-
-{
-  /* <LogOutButton className='navLink' /> */
-}

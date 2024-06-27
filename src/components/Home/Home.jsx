@@ -1,6 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './Home.css';
 
 export default function Home() {

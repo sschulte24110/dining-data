@@ -24,3 +24,7 @@ body:has(.beer-page) {
 .container {
   padding: 10px;
 }
+
+.out-stock-button {
+  text-align: center;
+}

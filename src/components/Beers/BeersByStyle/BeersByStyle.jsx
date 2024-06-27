@@ -16,39 +16,46 @@ export default function Beers() {
     dispatch({ type: 'FETCH_STYLE_BEER', payload: params.id });
   }, []);
 
-
   return (
     <div className='beer-page'>
-    <div className='container'>
-      <div className='beer-header'>
-        <h6 onClick={() => history.push('/beerstyle')} className='home-button'>
-          Back
-        </h6>
-        <h4>{beers[0].beer_style_name}</h4>
-        <h6 onClick={() => history.push('/beerform')}>Add</h6>
-      </div>
-      <BeerSearch />
-      <div className="out-of-stock-link" onClick={() => history.push(`/beersoutofstock`)}>
-        <h5 className='stock-link'>View Out of Stock Beers</h5>
-      </div>
-      <ul className='specific-beer-list'>
-        {beers.map((beer, i) => (
-          <div key={beer.id}>
-            <div className='indiv-beer'>
-              <li
-                onClick={() => {
-                  history.push(`/beerdetails/${beer.id}`);
-                }}
-              >
-                <div className='beerName'>{beer.name}</div>
-                <div className='beerBrewery'>{beer.brewery}</div>
-              </li>
+      <div className='container'>
+        <div className='beer-header'>
+          <h6
+            onClick={() => history.push('/beerstyle')}
+            className='home-button'
+          >
+            Back
+          </h6>
+          <h4>{beers[0].beer_style_name}</h4>
+          <h6 onClick={() => history.push('/beerform')}>Add</h6>
+        </div>
+        <BeerSearch />
+        <ul className='specific-beer-list'>
+          {beers.map((beer, i) => (
+            <div key={beer.id}>
+              <div className='indiv-beer'>
+                <li
+                  onClick={() => {
+                    history.push(`/beerdetails/${beer.id}`);
+                  }}
+                >
+                  <div className='beerName'>{beer.name}</div>
+                  <div className='beerBrewery'>{beer.brewery}</div>
+                </li>
+              </div>
+              <hr />
             </div>
-            <hr />
-          </div>
-        ))}
-      </ul>
-    </div>
+          ))}
+        </ul>
+        <div className='out-stock-button'>
+          <button
+            className='btn btn-outline-secondary'
+            onClick={() => history.push(`/beersoutofstock`)}
+          >
+            View Out of Stock Beers
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

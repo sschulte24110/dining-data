@@ -27,17 +27,19 @@ export default function BeerStyle() {
           <h6 onClick={() => history.push('/beerform')}>Add</h6>
         </div>
         <BeerSearch />
-        <div
-          className='out-of-stock-link'
-          onClick={() => history.push(`/beersoutofstock`)}
-        >
-          <h5 className='stock-link'>View Out of Stock Beers</h5>
-        </div>
         <ul className='beer-styles-list'>
           {styles.map((style) => (
             <BeerStyleList key={style.id} style={style} />
           ))}
         </ul>
+        <div className='out-stock-button'>
+          <button
+            className='btn btn-outline-secondary'
+            onClick={() => history.push(`/beersoutofstock`)}
+          >
+            View Out of Stock Beers
+          </button>
+        </div>
       </div>
     </div>
   );

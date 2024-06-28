@@ -11,6 +11,7 @@ export default function OutOfStockBeer() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_OUT_OF_STOCK_BEERS' });
+    window.scrollTo(0, 0);
   }, []);
 
   const inStock = (beerID) => {

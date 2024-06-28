@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import UserList from '../UserList/UserList';
@@ -13,6 +12,7 @@ function UserPage() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USERS' });
+    window.scrollTo(0, 0);
   }, []);
 
   const user = useSelector((store) => store.user);

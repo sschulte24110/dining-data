@@ -17,6 +17,7 @@ export default function WineDetails() {
     setWine(foundWine);
     dispatch({ type: 'FETCH_VARIETALS' });
     dispatch({ type: 'FETCH_VENDORS' });
+    window.scrollTo(0, 0);
   }, [id, wines]);
 
   if (!wine) {

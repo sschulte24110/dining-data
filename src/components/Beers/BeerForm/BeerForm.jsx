@@ -25,6 +25,7 @@ export default function BeerForm() {
     dispatch({ type: 'FETCH_BEERS' });
     dispatch({ type: 'FETCH_STYLES' });
     dispatch({ type: 'FETCH_VENDORS' });
+    window.scrollTo(0, 0);
   }, []);
 
   const handleSubmit = (event) => {

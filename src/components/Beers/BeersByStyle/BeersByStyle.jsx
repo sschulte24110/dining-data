@@ -14,6 +14,7 @@ export default function Beers() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_STYLE_BEER', payload: params.id });
+    window.scrollTo(0, 0);
   }, []);
 
   return (

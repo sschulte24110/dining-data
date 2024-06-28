@@ -23,6 +23,7 @@ export default function WineForm() {
   useEffect(() => {
     dispatch({ type: 'FETCH_VARIETALS' });
     dispatch({ type: 'FETCH_VENDORS' });
+    window.scrollTo(0, 0);
   }, []);
 
   const handleSubmit = (event) => {

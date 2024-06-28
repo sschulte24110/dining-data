@@ -19,6 +19,7 @@ export default function BeerDetails() {
     setBeer(foundBeer);
     dispatch({ type: 'FETCH_STYLES' });
     dispatch({ type: 'FETCH_VENDORS' });
+    window.scrollTo(0, 0);
   }, [id, beers]);
 
   if (!beer) {

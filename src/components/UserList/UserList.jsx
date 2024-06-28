@@ -1,6 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { toggleAdminRequest } from '../../redux/sagas/user.saga';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -13,6 +12,7 @@ export default function UserList({ user }) {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USERS' });
+    window.scrollTo(0, 0);
   }, []);
 
   const handleClose = () => setShow(false);

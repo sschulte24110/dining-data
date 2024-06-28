@@ -15,6 +15,7 @@ export default function VendorDetails() {
   useEffect(() => {
     const foundVendor = vendors.find((v) => Number(v.id) === parseInt(id));
     setVendor(foundVendor);
+    window.scrollTo(0, 0);
   }, [id, vendors]);
 
   if (!vendor) {

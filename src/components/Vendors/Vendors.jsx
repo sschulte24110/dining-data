@@ -13,6 +13,7 @@ export default function Vendors() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_VENDORS' });
+    window.scrollTo(0, 0);
   }, []);
 
   return (

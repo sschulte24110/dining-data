@@ -11,6 +11,7 @@ export default function OutOfStockWine() {
 
   useEffect(() => {
     dispatch({ type: 'FETCH_OUT_OF_STOCK_WINES' });
+    window.scrollTo(0, 0);
   }, []);
 
   const inStock = (wineID) => {

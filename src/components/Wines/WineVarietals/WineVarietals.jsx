@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import './WineVarietals.css';
 import WineVarietalsList from '../WineVarietalsList/WineVarietalsList';
-import SearchInput from '../../Search/SearchInput/SearchInput';
+
 import WineSearch from '../WineSearch/WineSearch';
 
 export default function WineVarietals() {
@@ -14,6 +14,7 @@ export default function WineVarietals() {
   useEffect(() => {
     dispatch({ type: 'FETCH_WINES' });
     dispatch({ type: 'FETCH_VARIETALS' });
+    window.scrollTo(0, 0);
   }, []);
 
   return (

@@ -17,7 +17,7 @@ body:has(.vendor-page) {
 }
 
 .vendor-page .container {
-  opacity: 90%;
+  opacity: 95%;
   background-color: white;
 }
 .container {

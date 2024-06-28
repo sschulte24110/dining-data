@@ -18,7 +18,7 @@ body:has(.wine-page) {
 }
 
 .wine-page .container {
-  opacity: 90%;
+  opacity: 95%;
   background-color: white;
 }
 .container {

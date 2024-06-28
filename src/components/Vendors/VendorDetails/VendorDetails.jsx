@@ -29,17 +29,17 @@ export default function VendorDetails() {
           <h1 className='indiv-vendor-name'>{vendor?.vendor_name}</h1>
           <ul className='list-group list-group-flush'>
             <li className='list-group-item'>
-              Contact Name: {vendor?.contact_person_name}
+            <strong>Contact Name:</strong> {vendor?.contact_person_name}
             </li>
             <li className='list-group-item'>
-              Phone Number: {vendor?.phone_number}
+            <strong>Phone Number:</strong> {vendor?.phone_number}
             </li>
-            <li className='list-group-item'>Contact Email: {vendor?.email}</li>
-            <li className='list-group-item'>Address: {vendor?.address}</li>
+            <li className='list-group-item'><strong>Email:</strong> {vendor?.email}</li>
+            <li className='list-group-item'><strong>Address:</strong> {vendor?.address}</li>
             <li className='list-group-item'>
-              City, State: {vendor?.city}, {vendor?.state}
+            <strong>City, State:</strong> {vendor?.city}, {vendor?.state}
             </li>
-            <li className='list-group-item'>Zip Code: {vendor?.zip_code}</li>
+            <li className='list-group-item'><strong>Zip Code:</strong> {vendor?.zip_code}</li>
           </ul>
           <button
             id='details-button'

@@ -18,9 +18,10 @@ body:has(.beer-page) {
 }
 
 .beer-page .container {
-  opacity: 90%;
+  opacity: 95%;
   background-color: white;
 }
+
 .container {
   padding: 10px;
 }

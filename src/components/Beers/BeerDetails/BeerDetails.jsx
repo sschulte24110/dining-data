@@ -63,12 +63,12 @@ export default function BeerDetails() {
           />
 
           <ul className='list-group list-group-flush'>
-            <li className='list-group-item'>Name: {beer?.name}</li>
-            <li className='list-group-item'>Brewery: {beer?.brewery}</li>
-            <li className='list-group-item'>Style: {beer?.beer_style_name}</li>
-            <li className='list-group-item'>ABV: {beer?.abv}</li>
+            <li className='list-group-item'><strong>Name:</strong> {beer?.name}</li>
+            <li className='list-group-item'><strong>Brewery:</strong> {beer?.brewery}</li>
+            <li className='list-group-item'><strong>Style:</strong> {beer?.beer_style_name}</li>
+            <li className='list-group-item'><strong>ABV:</strong> {beer?.abv}</li>
             <li className='list-group-item'>
-              Description: {beer?.description}
+            <strong>Description:</strong> {beer?.description}
             </li>
           </ul>
           <button

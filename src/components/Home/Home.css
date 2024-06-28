@@ -19,7 +19,7 @@
   background-image: url(../../../images/beer-wall-3.png);
   text-align: center;
   color: white;
-  opacity: 50%;
+  opacity: 70%;
   border-radius: 10px;
 }
 
@@ -34,7 +34,7 @@
   background-image: url(../../../images/wine-bottles.png);
   text-align: center;
   color: white;
-  opacity: 50%;
+  opacity: 70%;
   border-radius: 10px;
 }
 
@@ -42,7 +42,7 @@
   background-image: url(../../../images/vendor-image-4.png);
   text-align: center;
   color: white;
-  opacity: 50%;
+  opacity: 70%;
   border-radius: 10px;
 }
 
@@ -50,6 +50,6 @@
   background-image: url(../../../images/user-image.png);
   text-align: center;
   color: white;
-  opacity: 50%;
+  opacity: 70%;
   border-radius: 10px;
 }

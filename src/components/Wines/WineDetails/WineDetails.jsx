@@ -61,15 +61,15 @@ export default function WineDetails() {
             className='card-image-top'
           />
           <ul className='list-group list-group-flush'>
-            <li className='list-group-item'>Region: {wine?.region}</li>
+            <li className='list-group-item'><strong>Name/Winery:</strong> {wine?.name_winery}</li>
+            <li className='list-group-item'><strong>Region:</strong> {wine?.region}</li>
             <li className='list-group-item'>
-              Varietal: {wine?.wine_varietal_name}
+            <strong>Varietal:</strong> {wine?.wine_varietal_name}
             </li>
-            <li className='list-group-item'>Year: {wine?.year}</li>
+            <li className='list-group-item'><strong>Year:</strong> {wine?.year}</li>
             <li className='list-group-item'>
-              Description: {wine?.description}
+            <strong>Description:</strong> {wine?.description}
             </li>
-            <li className='list-group-item'></li>
           </ul>
           <button
             id='details-button'

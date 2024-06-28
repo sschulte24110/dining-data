@@ -5,7 +5,7 @@ const wines = (state = [], action) => {
     return [...state, action.payload]
   } else if (action.type === 'SET_VARIETAL_WINE') {
     return action.payload;
-  } else if (action.payload === 'SET_OUT_OF_STOCK_WINES') {
+  } else if (action.type === 'SET_OUT_OF_STOCK_WINES') {
     return action.payload;
   }
   return state;

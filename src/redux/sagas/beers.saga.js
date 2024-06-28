@@ -4,7 +4,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* fetchBeers() {
   try {
     const response = yield axios.get('api/beers');
-    yield put({ type: 'SET_BEERS', payload: response.data});
+    yield put({ type: 'SET_BEERS', payload: response.data });
   } catch (error) {
     console.error(`Error getting beers`);
   }
@@ -13,16 +13,16 @@ function* fetchBeers() {
 function* fetchOutOfStockBeers() {
   try {
     const response = yield axios.get('api/beers/beersoutofstock');
-    yield put({ type: 'SET_OUT_OF_STOCK_BEERS', payload: response.data})
+    yield put({ type: 'SET_OUT_OF_STOCK_BEERS', payload: response.data });
   } catch (error) {
-    console.error(`Error getting out of stock`)
+    console.error(`Error getting out of stock`);
   }
 }
 
 function* addBeer(action) {
   try {
     yield axios.post('api/beers', action.payload);
-    yield put({ type: 'FETCH_BEERS' })
+    yield put({ type: 'FETCH_BEERS' });
   } catch (error) {
     alert(`Error adding beer`);
     console.error(error);
@@ -42,7 +42,7 @@ function* fetchStyleBeer(action) {
 function* updateBeerOutStock(action) {
   try {
     yield axios.put(`/api/beers/beerdetails/${action.payload}`);
-    yield put({ type: 'FETCH_BEERS'});
+    yield put({ type: 'FETCH_BEERS' });
   } catch (error) {
     alert(`Error marking beer out of stock`);
     console.log(`Error marking beer out of stock`, error);
@@ -51,8 +51,8 @@ function* updateBeerOutStock(action) {
 
 function* updateBeerInStock(action) {
   try {
-    yield axios.put(`/api/beers/beersoutofstock/${action.payload}`)
-    yield put({ type: 'FETCH_OUT_OF_STOCK_BEERS'});
+    yield axios.put(`/api/beers/beersoutofstock/${action.payload}`);
+    yield put({ type: 'FETCH_OUT_OF_STOCK_BEERS' });
   } catch (error) {
     alert(`Error marking beer back in stock`);
     console.log(`Error marking beer back in stock`);
@@ -61,20 +61,26 @@ function* updateBeerInStock(action) {
 
 function* updateBeer(action) {
   try {
-    yield axios.put(`/api/beers/${action.payload.id}`, {name: action.payload.name, brewery: action.payload.brewery, beer_style: action.payload.beer_style, abv: action.payload.abv, photo_url: action.payload.photo_url, description: action.payload.description, vendor_id: action.payload.vendor_id})
-    yield put({ type: 'FETCH_BEERS'})
+    yield axios.put(`/api/beers/${action.payload.id}`, {
+      name: action.payload.name,
+      brewery: action.payload.brewery,
+      beer_style: action.payload.beer_style,
+      abv: action.payload.abv,
+      photo_url: action.payload.photo_url,
+      description: action.payload.description,
+      vendor_id: action.payload.vendor_id,
+    });
+    yield put({ type: 'FETCH_BEERS' });
   } catch (error) {
     alert(`Error editing beer`);
     console.log(`Error editing beer`, error);
   }
 }
 
-
-
 function* deleteBeer(action) {
   try {
     yield axios.delete(`/api/beers/${action.payload}`);
-    yield put({ type: 'FETCH_BEERS'});
+    yield put({ type: 'FETCH_BEERS' });
   } catch (error) {
     alert(`Error deleting beer`);
     console.log(`Error deleting beer`, error);
